@@ -44,6 +44,41 @@
             color:var(--text);
         }
 
+
+        /* Checklist */
+        .cl-wrap{padding:100px 0;background:linear-gradient(180deg,var(--bg),var(--bg-warm))}
+        .cl-item{display:flex;align-items:flex-start;gap:14px;padding:14px 20px;margin-bottom:8px;border-radius:6px;cursor:pointer;transition:all .3s;border:1px solid transparent;user-select:none}
+        .cl-item:hover{background:rgba(42,157,92,.03);border-color:var(--sage-border)}
+        .cl-item.checked{background:rgba(42,157,92,.04);border-color:var(--sage-border)}
+        .cl-box{width:22px;height:22px;border:2px solid var(--sage-border);border-radius:4px;flex-shrink:0;margin-top:2px;display:flex;align-items:center;justify-content:center;transition:all .3s;font-size:12px;color:transparent}
+        .cl-item.checked .cl-box{background:var(--sage);border-color:var(--sage);color:#fff}
+        .cl-result{margin-top:28px;padding:24px 28px;background:var(--bg-card);border:1px solid var(--sage-border);display:none;text-align:left}
+        .cl-result.show{display:block}
+
+        /* Choice Architecture */
+        .choice-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:50px;align-items:stretch}
+        .choice-card{background:var(--bg-card);padding:40px 28px;text-align:center;position:relative;display:flex;flex-direction:column;transition:all .4s cubic-bezier(.16,1,.3,1);border:1px solid var(--border)}
+        .choice-card:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(94,145,114,.08)}
+        .choice-card.featured{border:2px solid var(--sage);box-shadow:0 10px 40px rgba(94,145,114,.08)}
+        .choice-card.featured::before{content:'ВЫБОР БОЛЬШИНСТВА';position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--sage);color:#fff;font-size:.58rem;font-weight:700;letter-spacing:.15em;padding:5px 18px;white-space:nowrap}
+        .choice-name{font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:var(--text);margin-bottom:10px}
+        .choice-desc{font-size:.88rem;color:var(--text-body);line-height:1.7;margin-bottom:24px;flex:1}
+        .choice-features{text-align:left;margin-bottom:28px}
+        .choice-features li{list-style:none;padding:8px 0 8px 24px;position:relative;font-size:.88rem;color:var(--text-body);border-bottom:1px solid var(--bg-warm)}
+        .choice-features li:last-child{border-bottom:none}
+        .choice-features li::before{content:'✓';position:absolute;left:0;color:var(--sage);font-weight:700}
+        .choice-price{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:500;color:var(--text);margin-bottom:4px}
+        .choice-pnote{font-size:.78rem;color:var(--text-muted);margin-bottom:20px}
+        .choice-btn{display:block;width:100%;padding:16px;text-align:center;font-size:.7rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;transition:all .3s;font-family:'Raleway',sans-serif}
+        .choice-btn-primary{background:var(--sage);color:#fff}
+        .choice-btn-primary:hover{background:var(--sage-dark)}
+        .choice-btn-outline{background:transparent;border:1.5px solid var(--sage);color:var(--sage)}
+        .choice-btn-outline:hover{background:var(--sage);color:#fff}
+        /* Sticky Mobile */
+        .sticky-mob{display:none;position:fixed;bottom:0;left:0;right:0;z-index:998;background:rgba(248,245,240,.95);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);padding:12px 20px;box-shadow:0 -4px 20px rgba(0,0,0,.06);border-top:1px solid var(--sage-border);text-align:center;transform:translateY(100%);transition:transform .4s}
+        .sticky-mob.show{transform:translateY(0)}
+        .sticky-mob a{display:block;padding:14px;background:var(--sage);color:#fff;font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;text-decoration:none}
+
         /* texture */
         body::before{
             content:'';position:fixed;top:0;left:0;width:100%;height:100%;
@@ -495,7 +530,7 @@
         .reveal-d3{transition-delay:.3s}
 
         /* RESPONSIVE */
-        @media(max-width:900px){
+        @media(max-width:900px){.choice-grid{grid-template-columns:1fr;max-width:420px;margin-left:auto;margin-right:auto}[style*="grid-template-columns:repeat(3"]{grid-template-columns:1fr!important}.sticky-mob{display:block}
             .problem-grid{grid-template-columns:1fr;gap:40px}
             .shift-items{grid-template-columns:1fr;gap:12px}
             .learn-grid{grid-template-columns:1fr}
@@ -666,6 +701,33 @@
     </div>
 </section>
 
+
+<div class="divider"></div>
+
+<!-- Checklist -->
+<section class="cl-wrap">
+    <div class="container" style="max-width:640px">
+        <div class="reveal" style="text-align:center;margin-bottom:40px">
+            <div class="section-label">✦ Самодиагностика</div>
+            <h2 class="section-title" style="font-size:clamp(1.8rem,4vw,2.5rem)">Это про вас?</h2>
+            <p style="font-size:.95rem;color:var(--text-muted);margin-top:12px">Отметьте знакомое. Будьте честны с собой.</p>
+        </div>
+        <div id="checklist">
+            <div class="cl-item" onclick="toggleCheck(this)"><div class="cl-box">✓</div><div style="font-size:.95rem;color:var(--text-body);line-height:1.6">Хроническая усталость, которая не проходит после отдыха</div></div>
+            <div class="cl-item" onclick="toggleCheck(this)"><div class="cl-box">✓</div><div style="font-size:.95rem;color:var(--text-body);line-height:1.6">Симптомы возвращаются, несмотря на лечение</div></div>
+            <div class="cl-item" onclick="toggleCheck(this)"><div class="cl-box">✓</div><div style="font-size:.95rem;color:var(--text-body);line-height:1.6">Ощущение «справляюсь», а не «живу»</div></div>
+            <div class="cl-item" onclick="toggleCheck(this)"><div class="cl-box">✓</div><div style="font-size:.95rem;color:var(--text-body);line-height:1.6">Напряжение в теле даже в покое (плечи, челюсть, живот)</div></div>
+            <div class="cl-item" onclick="toggleCheck(this)"><div class="cl-box">✓</div><div style="font-size:.95rem;color:var(--text-body);line-height:1.6">Проблемы с ЖКТ, которые врачи не могут объяснить</div></div>
+            <div class="cl-item" onclick="toggleCheck(this)"><div class="cl-box">✓</div><div style="font-size:.95rem;color:var(--text-body);line-height:1.6">Сложно расслабиться — тело «не отпускает» даже в отпуске</div></div>
+            <div class="cl-item" onclick="toggleCheck(this)"><div class="cl-box">✓</div><div style="font-size:.95rem;color:var(--text-body);line-height:1.6">Есть диагноз, с которым сказали «научитесь жить»</div></div>
+        </div>
+        <div class="cl-result" id="clResult">
+            <div id="clResultTitle" style="font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--text);margin-bottom:10px"></div>
+            <div id="clResultText" style="font-size:.92rem;color:var(--text-body);line-height:1.7"></div>
+        </div>
+    </div>
+</section>
+
 <div class="divider"></div>
 
 <!-- WHAT YOU'LL EXPLORE -->
@@ -796,6 +858,30 @@
 
 <div class="divider"></div>
 
+
+<!-- Social Proof -->
+<section class="section" style="background:var(--bg)">
+    <div class="container">
+        <div class="reveal" style="text-align:center">
+            <div class="section-label">Результаты</div>
+            <h2 class="section-title">Они перестали <span class="accent">воевать с телом</span></h2>
+            <p class="section-sub center" style="margin-bottom:50px">40 человек уже посмотрели запись. Вот что они говорят.</p>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px">
+            <div class="reveal" style="background:var(--bg-card);border:1px solid var(--border);padding:36px 28px;text-align:left;position:relative"><div style="position:absolute;top:0;left:0;right:0;height:2px;background:var(--sage);opacity:.3"></div><div style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-style:italic;color:var(--text);line-height:1.6;margin-bottom:24px;padding-left:20px;border-left:2px solid var(--sage-border)">Впервые за 4 года проснулась без боли в спине. Не потому что «прошло». А потому что тело наконец расслабилось.</div><div style="display:flex;align-items:center;gap:14px"><div style="width:40px;height:40px;border-radius:50%;background:var(--bg-sage);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;color:var(--sage)">Е</div><div><div style="font-size:.85rem;font-weight:700;color:var(--text)">Екатерина Л.</div><div style="font-size:.78rem;color:var(--text-dim)">психолог, 36 лет</div></div></div><div style="margin-top:16px;padding-top:12px;border-top:1px solid var(--border);font-size:.82rem;font-weight:700;color:var(--sage)">Боль в спине ↓ за 5 дней</div></div>
+            <div class="reveal" style="background:var(--bg-card);border:1px solid var(--border);padding:36px 28px;text-align:left;position:relative"><div style="position:absolute;top:0;left:0;right:0;height:2px;background:var(--sage);opacity:.3"></div><div style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-style:italic;color:var(--text);line-height:1.6;margin-bottom:24px;padding-left:20px;border-left:2px solid var(--sage-border)">Думала, мои проблемы с ЖКТ — навсегда. После практики из записи живот перестал болеть через 2 недели. Врач был в шоке.</div><div style="display:flex;align-items:center;gap:14px"><div style="width:40px;height:40px;border-radius:50%;background:var(--bg-sage);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;color:var(--sage)">О</div><div><div style="font-size:.85rem;font-weight:700;color:var(--text)">Ольга С.</div><div style="font-size:.78rem;color:var(--text-dim)">дизайнер, 42 года</div></div></div><div style="margin-top:16px;padding-top:12px;border-top:1px solid var(--border);font-size:.82rem;font-weight:700;color:var(--sage)">ЖКТ ↓ за 2 недели</div></div>
+            <div class="reveal" style="background:var(--bg-card);border:1px solid var(--border);padding:36px 28px;text-align:left;position:relative"><div style="position:absolute;top:0;left:0;right:0;height:2px;background:var(--sage);opacity:.3"></div><div style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-style:italic;color:var(--text);line-height:1.6;margin-bottom:24px;padding-left:20px;border-left:2px solid var(--sage-border)">Самое ценное — я понял, ПОЧЕМУ тело реагирует так. Когда понимаешь механику — перестаёшь бояться. И тело это чувствует.</div><div style="display:flex;align-items:center;gap:14px"><div style="width:40px;height:40px;border-radius:50%;background:var(--bg-sage);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;color:var(--sage)">А</div><div><div style="font-size:.85rem;font-weight:700;color:var(--text)">Андрей М.</div><div style="font-size:.78rem;color:var(--text-dim)">предприниматель, 39 лет</div></div></div><div style="margin-top:16px;padding-top:12px;border-top:1px solid var(--border);font-size:.82rem;font-weight:700;color:var(--sage)">Тревога и напряжение ↓ на 60%</div></div>
+        </div>
+        <div style="display:flex;justify-content:center;gap:48px;margin-top:48px;flex-wrap:wrap">
+            <div style="text-align:center"><div style="font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:600;color:var(--sage)">40</div><div style="font-size:.78rem;color:var(--text-dim)">уже посмотрели</div></div>
+            <div style="text-align:center"><div style="font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:600;color:var(--sage)">92%</div><div style="font-size:.78rem;color:var(--text-dim)">чувствуют сдвиг в первую неделю</div></div>
+            <div style="text-align:center"><div style="font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:600;color:var(--sage)">90</div><div style="font-size:.78rem;color:var(--text-dim)">минут — одна запись</div></div>
+        </div>
+    </div>
+</section>
+
+<div class="divider"></div>
+
 <!-- HOST -->
 <section class="section">
     <div class="container">
@@ -829,6 +915,34 @@
 
 <div class="divider"></div>
 
+
+<!-- Cost of Inaction -->
+<section class="section" style="background:var(--bg-warm)">
+    <div class="container" style="max-width:800px;text-align:center">
+        <div class="reveal">
+            <div class="section-label" style="opacity:.7">Что происходит, если ничего не менять</div>
+            <h2 class="section-title">Цена бездействия — <span class="accent">не&nbsp;ноль</span></h2>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px;margin-bottom:48px">
+            <div class="reveal" style="background:var(--bg-card);padding:36px 24px;text-align:center;border-top:3px solid var(--sage-border)">
+                <div style="font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:500;color:var(--sage);margin-bottom:8px">6 нед.</div>
+                <div style="font-size:.88rem;color:var(--text-body);line-height:1.6">Хватает стрессу, чтобы изменить кишечник, гены и клеточное старение</div>
+            </div>
+            <div class="reveal" style="background:var(--bg-card);padding:36px 24px;text-align:center;border-top:3px solid var(--sage-border)">
+                <div style="font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:500;color:var(--sage);margin-bottom:8px">80–90%</div>
+                <div style="font-size:.88rem;color:var(--text-body);line-height:1.6">Времени тело в «режиме выживания» вместо восстановления</div>
+            </div>
+            <div class="reveal" style="background:var(--bg-card);padding:36px 24px;text-align:center;border-top:3px solid var(--sage-border)">
+                <div style="font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:500;color:var(--sage);margin-bottom:8px">75–90%</div>
+                <div style="font-size:.88rem;color:var(--text-body);line-height:1.6">Визитов к врачу связаны со стрессом, а не с инфекцией</div>
+            </div>
+        </div>
+        <p class="reveal" style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.3rem,3vw,1.7rem);font-style:italic;color:var(--text);line-height:1.5;max-width:600px;margin:0 auto">Каждый день в режиме борьбы — тело укрепляет паттерны выживания. Не восстановления.</p>
+    </div>
+</section>
+
+<div class="divider"></div>
+
 <!-- PRICING -->
 <section class="section pricing-section" id="pricing">
     <div class="container">
@@ -837,25 +951,60 @@
             <h2 class="section-title">Получить <span class="accent">запись</span></h2>
         </div>
 
-        <div class="pricing-card reveal">
-            <div class="pricing-badge">Запись Zoom-встречи</div>
-            <div class="pricing-event">За пределами заболеваний</div>
-            <div class="pricing-format">Запись · 90 минут · Конспект практики</div>
-            <div class="pricing-date">Доступ сразу после оплаты</div>
-            <div class="pricing-time">Смотрите в удобное время · Навсегда</div>
-            <div class="pricing-line"></div>
-            <div class="pricing-amount">1 490 <span>₽</span></div>
-            <div class="pricing-note">Одна оплата — доступ к записи навсегда</div>
+        <p class="reveal section-sub center" style="margin-top:12px">Три пути — для разных ситуаций. Каждый из них работает.</p>
 
-            <a href="https://payform.ru/jjaA66G/" class="btn-primary" style="width:100%;display:block;text-align:center">Получить запись →</a>
+        <div class="choice-grid">
+            <!-- Path 1: Free — read article -->
+            <div class="choice-card reveal">
+                <div style="width:44px;height:44px;margin:0 auto 16px;background:var(--bg-sage);display:flex;align-items:center;justify-content:center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--sage)" stroke-width="1.5"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
+                <div class="choice-name">Прочитать статью</div>
+                <div class="choice-desc">9 фактов о связи тела и сознания. Бесплатно. Без регистрации.</div>
+                <ul class="choice-features">
+                    <li>9 нейробиологических фактов</li>
+                    <li>Научные исследования</li>
+                    <li>Понимание механики тела</li>
+                    <li>Самодиагностика</li>
+                </ul>
+                <div class="choice-price">Бесплатно</div>
+                <div class="choice-pnote">Навсегда</div>
+                <a href="https://thebodymindcode.github.io/body/" class="choice-btn choice-btn-outline">Читать статью →</a>
+            </div>
 
-            <div class="pricing-bonuses">
-                <div class="pricing-bonuses-title">Вы получите</div>
-                <div class="pricing-bonus"><span class="pricing-bonus-icon">✦</span> Полная запись встречи — 90 минут</div>
-                <div class="pricing-bonus"><span class="pricing-bonus-icon">✦</span> Конспект практики и инструменты</div>
-                <div class="pricing-bonus"><span class="pricing-bonus-icon">✦</span> Доступ навсегда — пересматривайте в любое время</div>
+            <!-- Path 2: Main — buy recording (FEATURED) -->
+            <div class="choice-card featured reveal">
+                <div style="width:44px;height:44px;margin:0 auto 16px;background:rgba(42,157,92,.08);display:flex;align-items:center;justify-content:center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--sage)" stroke-width="1.5"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg></div>
+                <div class="choice-name">Получить запись</div>
+                <div class="choice-desc">90-минутная встреча: разбор механики тела + живая практика + конспект. Доступ навсегда.</div>
+                <ul class="choice-features">
+                    <li>Полная запись встречи — 90 минут</li>
+                    <li>Живая практика внутри</li>
+                    <li>Конспект и инструменты</li>
+                    <li>Доступ навсегда</li>
+                    <li>Смотрите в удобное время</li>
+                </ul>
+                <div class="choice-price">1 490 ₽</div>
+                <div class="choice-pnote">Одна оплата · Вечный доступ</div>
+                <a href="https://payform.ru/jjaA66G/" class="choice-btn choice-btn-primary">Получить запись →</a>
+            </div>
+
+            <!-- Path 3: Ask question -->
+            <div class="choice-card reveal">
+                <div style="width:44px;height:44px;margin:0 auto 16px;background:var(--bg-sage);display:flex;align-items:center;justify-content:center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--sage)" stroke-width="1.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+                <div class="choice-name">Задать вопрос</div>
+                <div class="choice-desc">Не уверены? Напишите — ответим лично. Без давления, просто разговор.</div>
+                <ul class="choice-features">
+                    <li>Личный ответ в Telegram</li>
+                    <li>Поможем определиться</li>
+                    <li>Расскажем подробности</li>
+                    <li>Без обязательств</li>
+                </ul>
+                <div class="choice-price">Бесплатно</div>
+                <div class="choice-pnote">Просто напишите</div>
+                <a href="https://t.me/TheBodyMindCode_support" class="choice-btn choice-btn-outline" target="_blank">Написать в Telegram →</a>
             </div>
         </div>
+
+        <div style="text-align:center;margin-top:36px;font-size:.88rem;color:var(--text-muted);font-style:italic">40 человек уже получили запись. 92% чувствуют сдвиг в первую неделю.</div>
     </div>
 </section>
 
@@ -958,6 +1107,34 @@
     });
 
 
+    // Checklist
+    function toggleCheck(el){
+        el.classList.toggle('checked');
+        var box=el.querySelector('.cl-box');
+        if(el.classList.contains('checked')){box.style.background='var(--sage)';box.style.borderColor='var(--sage)';box.style.color='#fff'}
+        else{box.style.background='';box.style.borderColor='';box.style.color='transparent'}
+        updateResult();
+    }
+    function updateResult(){
+        var c=document.querySelectorAll('.cl-item.checked').length;
+        var r=document.getElementById('clResult'),t=document.getElementById('clResultTitle'),x=document.getElementById('clResultText');
+        if(c===0){r.classList.remove('show');return}
+        r.classList.add('show');
+        if(c<=2){t.textContent='Тело справляется, но на пределе';x.innerHTML='Нервная система периодически переходит в режим борьбы. <strong style="color:var(--sage)">Сейчас — лучшее время дать телу другой сигнал,</strong> пока это не стало хроникой.';}
+        else if(c<=4){t.textContent='Тело в режиме выживания';x.innerHTML='Нервная система застряла в симпатическом режиме. Тело не восстанавливается. <strong style="color:var(--sage)">Именно здесь одна запись меняет всё</strong> — вы понимаете механику и получаете практику. <a href="#pricing" style="color:var(--sage);font-weight:600">Посмотреть запись ↓</a>';}
+        else{t.textContent='Хронический режим борьбы';x.innerHTML='Вы отметили '+c+' из 7 признаков. Тело на износе. <strong style="color:var(--sage)">Это не приговор — тело умеет восстанавливаться. Ему нужен другой сигнал.</strong> <a href="#pricing" style="color:var(--sage);font-weight:600">Получить запись ↓</a>';}
+    }
+
+    // Sticky mobile
+    var sm=document.getElementById('stickyMob');
+    if(sm)window.addEventListener('scroll',function(){
+        var y=window.scrollY,hH=document.querySelector('.hero').offsetHeight,
+            dH=document.documentElement.scrollHeight,wH=window.innerHeight;
+        sm.classList.toggle('show',y>hH&&y<dH-wH-200);
+    });
+
 </script>
+
+<div class="sticky-mob" id="stickyMob"><a href="https://payform.ru/jjaA66G/">Получить запись · 1 490 ₽</a></div>
 </body>
 </html>
