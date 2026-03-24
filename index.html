@@ -530,7 +530,7 @@
         .reveal-d3{transition-delay:.3s}
 
         /* RESPONSIVE */
-        @media(max-width:900px){.choice-grid{grid-template-columns:1fr;max-width:420px;margin-left:auto;margin-right:auto}[style*="grid-template-columns:repeat(3"]{grid-template-columns:1fr!important}.sticky-mob{display:block}
+        @media(max-width:900px){.choice-grid{grid-template-columns:1fr;max-width:420px;margin-left:auto;margin-right:auto}[style*="grid-template-columns:repeat(3"]{grid-template-columns:1fr!important}[style*="grid-template-columns:280px"]{grid-template-columns:1fr!important}[style*="grid-template-columns:repeat(5"]{grid-template-columns:repeat(3,1fr)!important}.sticky-mob{display:block}
             .problem-grid{grid-template-columns:1fr;gap:40px}
             .shift-items{grid-template-columns:1fr;gap:12px}
             .learn-grid{grid-template-columns:1fr}
@@ -604,7 +604,7 @@
 <nav id="nav">
     <div class="container">
         <a href="#" class="logo">Архитектура сознания</a>
-        <a href="#pricing" class="nav-cta">Получить запись →</a>
+        <a href="#pricing" class="nav-cta">Получить запись + книгу →</a>
     </div>
 </nav>
 
@@ -613,7 +613,7 @@
     <div class="hero-breath"></div>
 
 
-    <div class="hero-label">Запись Zoom-встречи · Доступ навсегда</div>
+    <div class="hero-label">Запись встречи + электронная книга · Доступ навсегда</div>
     <h1 class="hero-title">
         За пределами
         <span class="line-2">заболеваний</span>
@@ -625,12 +625,22 @@
         Что, если всё, что вы делали с&nbsp;телом, работало&nbsp;против&nbsp;вас?
     </p>
     <div class="hero-meta">
-        <div class="hero-meta-item"><div class="hero-meta-dot"></div> Запись доступна сразу после оплаты</div>
-        <div class="hero-meta-item"><div class="hero-meta-dot"></div> 90 минут + конспект практики</div>
-        <div class="hero-meta-item"><div class="hero-meta-dot"></div> Запись останется у вас</div>
+        <div class="hero-meta-item"><div class="hero-meta-dot"></div> 90 минут · запись + практика</div>
+        <div class="hero-meta-item"><div class="hero-meta-dot"></div> Книга «Тело говорит первым» (38 стр.)</div>
+        <div class="hero-meta-item"><div class="hero-meta-dot"></div> Доступ навсегда</div>
     </div>
+
+    <!-- Book in hero -->
+    <div style="display:flex;align-items:center;gap:20px;margin-top:36px;padding:20px 28px;background:rgba(255,255,255,.65);backdrop-filter:blur(8px);border:1px solid var(--sage-border);max-width:520px;opacity:0;animation:fadeUp .8s ease .95s forwards">
+        <img src="https://raw.githubusercontent.com/thebodymindcode/Beyond/main/195a40f8fdc4ba2bc7c1d886881e4710_793b6fe8-4db1-4ec7-ab78-debbadc5fdb0.png" alt="Тело говорит первым" style="width:64px;height:auto;flex-shrink:0;border-radius:3px;box-shadow:0 4px 12px rgba(0,0,0,.1)">
+        <div style="text-align:left">
+            <div style="font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:600;color:var(--text);line-height:1.3">+ Книга «Тело говорит первым»</div>
+            <div style="font-size:.78rem;color:var(--text-muted);line-height:1.5;margin-top:4px">21 сигнал тела · Анализы · Чеклист к врачу<br>Входит в стоимость</div>
+        </div>
+    </div>
+
     <div class="hero-cta-wrap">
-        <a href="#pricing" class="btn-primary">Получить запись →</a>
+        <a href="#pricing" class="btn-primary">Получить запись + книгу →</a>
     </div>
 </section>
 
@@ -667,6 +677,10 @@
                     <div class="problem-icon">·</div>
                     <div class="problem-text"><strong>Устали функционировать</strong> — хочется не&nbsp;«справляться», а&nbsp;чувствовать себя&nbsp;живым</div>
                 </div>
+                <div class="problem-card reveal">
+                    <div class="problem-icon">📖</div>
+                    <div class="problem-text"><strong>Не знаете, какие анализы сдать</strong> — книга «Тело говорит первым» даёт конкретный список для каждого из 21 сигнала</div>
+                </div>
             </div>
         </div>
     </div>
@@ -680,6 +694,7 @@
         <div class="shift-quote reveal">
             «Что, если ваше тело никогда не&nbsp;было&nbsp;врагом?
             И&nbsp;ждёт совсем другого&nbsp;разговора?»
+        <p style="font-size:.88rem;color:var(--text-muted);text-align:center;margin-top:20px;font-style:normal">В записи — как начать этот разговор. В книге — как понять, что тело говорит.</p>
         </div>
         <div class="shift-items">
             <div class="shift-item reveal">
@@ -734,9 +749,9 @@
 <section class="section">
     <div class="container">
         <div class="reveal" style="text-align:center">
-            <div class="section-label">Что вас ждёт в записи</div>
-            <h2 class="section-title">О чём мы <span class="accent">поговорим</span></h2>
-            <p class="section-sub center">Темы и вопросы, которые мы разберём за 90 минут.</p>
+            <div class="section-label">Что вас ждёт</div>
+            <h2 class="section-title">Запись + книга: о чём <span class="accent">внутри</span></h2>
+            <p class="section-sub center">Темы встречи (90 мин) + 21 сигнал тела из книги.</p>
         </div>
 
         <div class="learn-grid">
@@ -776,6 +791,34 @@
                 <div class="learn-txt">Это не лекция. В записи — живая практика, которую вы можете повторить и почувствовать разницу в любой момент.</div>
             </div>
         </div>
+
+        <!-- Book content preview -->
+        <div class="reveal" style="margin-top:48px;text-align:center">
+            <div class="section-label">+ В книге «Тело говорит первым»</div>
+            <p class="section-sub center" style="margin-bottom:28px">21 конкретный сигнал тела — с анализами, врачами и чеклистом</p>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:0">
+            <div class="learn-card reveal" style="text-align:center;justify-content:center;padding:24px 16px;flex-direction:column;align-items:center">
+                <div style="font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:600;color:var(--sage);margin-bottom:4px">5</div>
+                <div class="learn-txt" style="font-size:.78rem;text-align:center"><strong>Пищеварение</strong><br>вздутие, стул, изжога, тяга к сладкому</div>
+            </div>
+            <div class="learn-card reveal" style="text-align:center;justify-content:center;padding:24px 16px;flex-direction:column;align-items:center">
+                <div style="font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:600;color:var(--sage);margin-bottom:4px">4</div>
+                <div class="learn-txt" style="font-size:.78rem;text-align:center"><strong>Кожа и волосы</strong><br>выпадение, сухость, пятна, синяки</div>
+            </div>
+            <div class="learn-card reveal" style="text-align:center;justify-content:center;padding:24px 16px;flex-direction:column;align-items:center">
+                <div style="font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:600;color:var(--sage);margin-bottom:4px">4</div>
+                <div class="learn-txt" style="font-size:.78rem;text-align:center"><strong>Энергия и сон</strong><br>усталость, бессонница, кофе-зависимость</div>
+            </div>
+            <div class="learn-card reveal" style="text-align:center;justify-content:center;padding:24px 16px;flex-direction:column;align-items:center">
+                <div style="font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:600;color:var(--sage);margin-bottom:4px">4</div>
+                <div class="learn-txt" style="font-size:.78rem;text-align:center"><strong>Гормоны</strong><br>вес, ПМС, раздражительность, холод</div>
+            </div>
+            <div class="learn-card reveal" style="text-align:center;justify-content:center;padding:24px 16px;flex-direction:column;align-items:center">
+                <div style="font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:600;color:var(--sage);margin-bottom:4px">4</div>
+                <div class="learn-txt" style="font-size:.78rem;text-align:center"><strong>Скрытые сигналы</strong><br>храп, одышка, туман, ночной туалет</div>
+            </div>
+        </div>
     </div>
 </section>
 
@@ -792,29 +835,36 @@
             <div class="process-step reveal">
                 <div class="step-num">01</div>
                 <div>
-                    <h3 class="step-title">Подключение</h3>
-                    <p class="step-desc">Вы получаете доступ к записи сразу после оплаты. Смотрите в удобное время, без ограничений. Камера не нужна.</p>
+                    <h3 class="step-title">Оплата → мгновенный доступ</h3>
+                    <p class="step-desc">Сразу после оплаты вы получаете запись встречи + книгу «Тело говорит первым» в PDF. Смотрите и читайте в удобное время.</p>
                 </div>
             </div>
             <div class="process-step reveal">
                 <div class="step-num">02</div>
                 <div>
-                    <h3 class="step-title">Разбор</h3>
-                    <p class="step-desc">Первая часть — посмотрим на механизм, который мешает телу восстанавливаться. Честно, без обещаний чудес.</p>
+                    <h3 class="step-title">Книга: узнайте свои сигналы</h3>
+                    <p class="step-desc">Откройте чеклист в конце книги. Отметьте свои сигналы из 21. Прочитайте разделы по своим симптомам. Запишите анализы, которые нужно сдать.</p>
                 </div>
             </div>
             <div class="process-step reveal">
                 <div class="step-num">03</div>
                 <div>
-                    <h3 class="step-title">Практика</h3>
-                    <p class="step-desc">Вторая часть — живая работа. Конкретный инструмент, который вы попробуете вместе с записью и заберёте с собой навсегда.</p>
+                    <h3 class="step-title">Запись: поймите почему</h3>
+                    <p class="step-desc">90 минут — разбор механики тела: почему оно застряло в режиме борьбы и как переключить в восстановление. Живая практика внутри.</p>
                 </div>
             </div>
             <div class="process-step reveal">
                 <div class="step-num">04</div>
                 <div>
-                    <h3 class="step-title">Итоги</h3>
-                    <p class="step-desc">Как применять в жизни. Конспект и материалы останутся у вас.</p>
+                    <h3 class="step-title">Практика: переключите тело</h3>
+                    <p class="step-desc">Конкретный инструмент из записи — повторяйте сколько угодно. Конспект и книга останутся с вами навсегда.</p>
+                </div>
+            </div>
+            <div class="process-step reveal">
+                <div class="step-num">05</div>
+                <div>
+                    <h3 class="step-title">К врачу — подготовленным</h3>
+                    <p class="step-desc">Возьмите чеклист из книги на приём. Конкретные анализы, конкретные специалисты — врач удивится, насколько вы подготовлены.</p>
                 </div>
             </div>
         </div>
@@ -828,7 +878,7 @@
     <div class="container">
         <div class="reveal">
             <div class="section-label">Для кого</div>
-            <h2 class="section-title">Эта запись <span class="accent">для вас</span></h2>
+            <h2 class="section-title">Запись + книга <span class="accent">для вас</span></h2>
         </div>
         <div class="audience-grid">
             <div class="audience-card yes reveal">
@@ -841,6 +891,7 @@
                     <li>Пробовали терапию, коучинг — но в теле мало что менялось</li>
                     <li>Хотите лучше чувствовать себя в своём теле</li>
                     <li>Готовы попробовать другой подход</li>
+                    <li>Хотите прийти к врачу с конкретным списком анализов</li>
                 </ul>
             </div>
             <div class="audience-card no reveal">
@@ -865,7 +916,7 @@
         <div class="reveal" style="text-align:center">
             <div class="section-label">Результаты</div>
             <h2 class="section-title">Они перестали <span class="accent">воевать с телом</span></h2>
-            <p class="section-sub center" style="margin-bottom:50px">40 человек уже посмотрели запись. Вот что они говорят.</p>
+            <p class="section-sub center" style="margin-bottom:50px">60+ человек уже посмотрели запись. Вот что они говорят.</p>
         </div>
         <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px">
             <div class="reveal" style="background:var(--bg-card);border:1px solid var(--border);padding:36px 28px;text-align:left;position:relative"><div style="position:absolute;top:0;left:0;right:0;height:2px;background:var(--sage);opacity:.3"></div><div style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-style:italic;color:var(--text);line-height:1.6;margin-bottom:24px;padding-left:20px;border-left:2px solid var(--sage-border)">Впервые за 4 года проснулась без боли в спине. Не потому что «прошло». А потому что тело наконец расслабилось.</div><div style="display:flex;align-items:center;gap:14px"><div style="width:40px;height:40px;border-radius:50%;background:var(--bg-sage);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;color:var(--sage)">Е</div><div><div style="font-size:.85rem;font-weight:700;color:var(--text)">Екатерина Л.</div><div style="font-size:.78rem;color:var(--text-dim)">психолог, 36 лет</div></div></div><div style="margin-top:16px;padding-top:12px;border-top:1px solid var(--border);font-size:.82rem;font-weight:700;color:var(--sage)">Боль в спине ↓ за 5 дней</div></div>
@@ -873,8 +924,8 @@
             <div class="reveal" style="background:var(--bg-card);border:1px solid var(--border);padding:36px 28px;text-align:left;position:relative"><div style="position:absolute;top:0;left:0;right:0;height:2px;background:var(--sage);opacity:.3"></div><div style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-style:italic;color:var(--text);line-height:1.6;margin-bottom:24px;padding-left:20px;border-left:2px solid var(--sage-border)">Самое ценное — я понял, ПОЧЕМУ тело реагирует так. Когда понимаешь механику — перестаёшь бояться. И тело это чувствует.</div><div style="display:flex;align-items:center;gap:14px"><div style="width:40px;height:40px;border-radius:50%;background:var(--bg-sage);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;color:var(--sage)">А</div><div><div style="font-size:.85rem;font-weight:700;color:var(--text)">Андрей М.</div><div style="font-size:.78rem;color:var(--text-dim)">предприниматель, 39 лет</div></div></div><div style="margin-top:16px;padding-top:12px;border-top:1px solid var(--border);font-size:.82rem;font-weight:700;color:var(--sage)">Тревога и напряжение ↓ на 60%</div></div>
         </div>
         <div style="display:flex;justify-content:center;gap:48px;margin-top:48px;flex-wrap:wrap">
-            <div style="text-align:center"><div style="font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:600;color:var(--sage)">40</div><div style="font-size:.78rem;color:var(--text-dim)">уже посмотрели</div></div>
-            <div style="text-align:center"><div style="font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:600;color:var(--sage)">92%</div><div style="font-size:.78rem;color:var(--text-dim)">чувствуют сдвиг в первую неделю</div></div>
+            <div style="text-align:center"><div style="font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:600;color:var(--sage)">60+</div><div style="font-size:.78rem;color:var(--text-dim)">уже посмотрели</div></div>
+            <div style="text-align:center"><div style="font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:600;color:var(--sage)">93%</div><div style="font-size:.78rem;color:var(--text-dim)">отмечают изменения</div></div>
             <div style="text-align:center"><div style="font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:600;color:var(--sage)">90</div><div style="font-size:.78rem;color:var(--text-dim)">минут — одна запись</div></div>
         </div>
     </div>
@@ -915,6 +966,65 @@
 
 <div class="divider"></div>
 
+
+
+<!-- BOOK + RECORDING = SYSTEM -->
+<div class="divider"></div>
+<section class="section" style="background:var(--bg-sage)">
+    <div class="container">
+        <div class="reveal" style="text-align:center">
+            <div class="section-label">Что вы получаете</div>
+            <h2 class="section-title">Не просто запись. <span class="accent">Система.</span></h2>
+            <p class="section-sub center" style="margin-bottom:56px">Запись встречи объясняет <em>почему</em> тело в этом режиме. Книга показывает <em>что именно</em> происходит — сигнал за сигналом. Вместе они дают полную картину и конкретный план действий.</p>
+        </div>
+
+        <!-- Two columns: Recording + Book -->
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;max-width:900px;margin:0 auto;align-items:start">
+
+            <!-- Column 1: Recording -->
+            <div class="reveal" style="background:var(--bg-card);border:1px solid var(--border);padding:36px 28px;position:relative">
+                <div style="position:absolute;top:0;left:0;right:0;height:3px;background:var(--sage);opacity:.4"></div>
+                <div style="text-align:center;margin-bottom:24px">
+                    <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="var(--sage)" stroke-width="1.2" style="margin-bottom:12px"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+                    <div style="font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:var(--text)">Запись встречи</div>
+                    <div style="font-size:.78rem;color:var(--text-muted);margin-top:4px">90 минут · Практика · Навсегда</div>
+                </div>
+                <div style="font-size:.9rem;color:var(--text-body);line-height:1.8;margin-bottom:20px"><strong style="color:var(--text)">Почему</strong> тело застряло в режиме борьбы. Как работает нервная система. Что запускает хронические состояния. И главное — <strong style="color:var(--text)">конкретная практика</strong>, которая переключает тело из выживания в восстановление.</div>
+                <div style="font-size:.82rem;color:var(--text-body);line-height:1.7">
+                    <div style="padding:6px 0;border-bottom:1px solid var(--border)">✓ Разбор механики тела и нервной системы</div>
+                    <div style="padding:6px 0;border-bottom:1px solid var(--border)">✓ Живая практика — повторяйте сколько угодно</div>
+                    <div style="padding:6px 0;border-bottom:1px solid var(--border)">✓ Конспект всех инструментов</div>
+                    <div style="padding:6px 0">✓ Доступ навсегда</div>
+                </div>
+            </div>
+
+            <!-- Column 2: Book -->
+            <div class="reveal" style="background:var(--bg-card);border:1px solid var(--border);padding:36px 28px;position:relative">
+                <div style="position:absolute;top:0;left:0;right:0;height:3px;background:var(--sage);opacity:.4"></div>
+                <div style="text-align:center;margin-bottom:24px">
+                    <img src="https://raw.githubusercontent.com/thebodymindcode/Beyond/main/195a40f8fdc4ba2bc7c1d886881e4710_793b6fe8-4db1-4ec7-ab78-debbadc5fdb0.png" alt="Тело говорит первым" style="width:160px;height:auto;margin:0 auto 16px;display:block;border-radius:4px;box-shadow:0 8px 24px rgba(0,0,0,.08)">
+                    <div style="font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:var(--text)">Книга «Тело говорит первым»</div>
+                    <div style="font-size:.78rem;color:var(--text-muted);margin-top:4px">38 страниц · PDF · 21 сигнал</div>
+                </div>
+                <div style="font-size:.9rem;color:var(--text-body);line-height:1.8;margin-bottom:20px"><strong style="color:var(--text)">Что именно</strong> происходит в теле — сигнал за сигналом. 21 конкретный симптом, который тело посылает за 3–5 лет до диагноза. Каждый разобран: что чувствуете → что внутри → во что превращается → какие анализы → к кому идти.</div>
+                <div style="font-size:.82rem;color:var(--text-body);line-height:1.7">
+                    <div style="padding:6px 0;border-bottom:1px solid var(--border)">✓ 5 разделов: ЖКТ, кожа, сон, гормоны, скрытые</div>
+                    <div style="padding:6px 0;border-bottom:1px solid var(--border)">✓ Списки анализов к каждому сигналу</div>
+                    <div style="padding:6px 0;border-bottom:1px solid var(--border)">✓ К какому врачу идти</div>
+                    <div style="padding:6px 0">✓ Чеклист — распечатайте и возьмите к врачу</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Together = System -->
+        <div class="reveal" style="max-width:700px;margin:40px auto 0;padding:32px 36px;background:var(--bg-card);border:2px solid var(--sage-border-h);text-align:center">
+            <div style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.3rem,3vw,1.7rem);color:var(--text);margin-bottom:12px;font-weight:500">Запись + Книга = Полная система</div>
+            <div style="font-size:.92rem;color:var(--text-body);line-height:1.8;max-width:560px;margin:0 auto">Запись даёт понимание <em>почему</em> и практику переключения. Книга даёт конкретную карту: <em>какие сигналы</em>, <em>какие анализы</em>, <em>к кому идти</em>. Вместе — это не «посмотрел и забыл». Это система, которая реально меняет отношения с телом.</div>
+        </div>
+    </div>
+</section>
+
+<div class="divider"></div>
 
 <!-- Cost of Inaction -->
 <section class="section" style="background:var(--bg-warm)">
@@ -973,18 +1083,18 @@
             <!-- Path 2: Main — buy recording (FEATURED) -->
             <div class="choice-card featured reveal">
                 <div style="width:44px;height:44px;margin:0 auto 16px;background:rgba(42,157,92,.08);display:flex;align-items:center;justify-content:center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--sage)" stroke-width="1.5"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg></div>
-                <div class="choice-name">Получить запись</div>
-                <div class="choice-desc">90-минутная встреча: разбор механики тела + живая практика + конспект. Доступ навсегда.</div>
+                <div class="choice-name">Запись + книга</div>
+                <div class="choice-desc">Полная система: 90-минутная встреча + книга «Тело говорит первым» (21 сигнал · анализы · чеклист). Всё, что нужно, чтобы понять тело и начать восстановление.</div>
                 <ul class="choice-features">
                     <li>Полная запись встречи — 90 минут</li>
                     <li>Живая практика внутри</li>
                     <li>Конспект и инструменты</li>
+                    <li><strong style="color:var(--sage)">📖 Книга «Тело говорит первым» (38 стр.)</strong></li>
                     <li>Доступ навсегда</li>
-                    <li>Смотрите в удобное время</li>
                 </ul>
                 <div class="choice-price">1 490 ₽</div>
                 <div class="choice-pnote">Одна оплата · Вечный доступ</div>
-                <a href="https://payform.ru/jjaA66G/" class="choice-btn choice-btn-primary">Получить запись →</a>
+                <a href="https://payform.ru/jjaA66G/" class="choice-btn choice-btn-primary">Получить запись + книгу →</a>
             </div>
 
             <!-- Path 3: Ask question -->
@@ -1004,7 +1114,7 @@
             </div>
         </div>
 
-        <div style="text-align:center;margin-top:36px;font-size:.88rem;color:var(--text-muted);font-style:italic">40 человек уже получили запись. 92% чувствуют сдвиг в первую неделю.</div>
+        <div style="text-align:center;margin-top:36px;font-size:.88rem;color:var(--text-muted);font-style:italic">60+ человек уже получили запись. </div>
     </div>
 </section>
 
@@ -1033,7 +1143,11 @@
                 </details>
                 <details class="faq reveal">
                     <summary>Как долго будет доступна запись?</summary>
-                    <div class="faq-body">Навсегда. После оплаты вы получите ссылку на запись и конспект практики. Доступ не ограничен по времени.</div>
+                    <div class="faq-body">Навсегда. После оплаты вы получите запись, книгу «Тело говорит первым» и конспект. Доступ не ограничен по времени.</div>
+                </details>
+                <details class="faq reveal">
+                    <summary>Что за книга «Тело говорит первым»?</summary>
+                    <div class="faq-body">Это PDF-книга на 38 страниц — 21 сигнал, который тело посылает за 3–5 лет до диагноза. Каждый сигнал разобран: что чувствуете, что происходит внутри, во что превращается, какие анализы сдать, к какому врачу идти. Плюс чеклист, который можно распечатать и взять на приём.</div>
                 </details>
                 <details class="faq reveal">
                     <summary>Это психосоматика?</summary>
@@ -1051,14 +1165,14 @@
 <!-- FINAL CTA -->
 <section class="final-cta">
     <div class="container reveal">
-        <h2>Готовы попробовать<br><span class="sage-text">другой&nbsp;разговор?</span></h2>
+        <h2>Запись + книга.<br><span class="sage-text">Полная система.</span></h2>
         <p class="section-sub center" style="margin-bottom:40px">
-            Запись · 90&nbsp;минут · Доступ&nbsp;навсегда
+            Запись + книга · 90&nbsp;минут · Доступ&nbsp;навсегда
         </p>
-        <a href="https://payform.ru/jjaA66G/" class="btn-primary">Получить запись →</a>
+        <a href="https://payform.ru/jjaA66G/" class="btn-primary">Получить запись + книгу →</a>
         <p class="final-ps">
-            Если внутри что-то откликнулось&nbsp;— просто&nbsp;приходите.
-            Остальное разберём&nbsp;вместе.
+            90 минут записи + 38 страниц книги + конспект + чеклист к врачу.
+            Всё, что нужно, чтобы перестать воевать с телом.
         </p>
     </div>
 </section>
@@ -1122,7 +1236,7 @@
         r.classList.add('show');
         if(c<=2){t.textContent='Тело справляется, но на пределе';x.innerHTML='Нервная система периодически переходит в режим борьбы. <strong style="color:var(--sage)">Сейчас — лучшее время дать телу другой сигнал,</strong> пока это не стало хроникой.';}
         else if(c<=4){t.textContent='Тело в режиме выживания';x.innerHTML='Нервная система застряла в симпатическом режиме. Тело не восстанавливается. <strong style="color:var(--sage)">Именно здесь одна запись меняет всё</strong> — вы понимаете механику и получаете практику. <a href="#pricing" style="color:var(--sage);font-weight:600">Посмотреть запись ↓</a>';}
-        else{t.textContent='Хронический режим борьбы';x.innerHTML='Вы отметили '+c+' из 7 признаков. Тело на износе. <strong style="color:var(--sage)">Это не приговор — тело умеет восстанавливаться. Ему нужен другой сигнал.</strong> <a href="#pricing" style="color:var(--sage);font-weight:600">Получить запись ↓</a>';}
+        else{t.textContent='Хронический режим борьбы';x.innerHTML='Вы отметили '+c+' из 7 признаков. Тело на износе. <strong style="color:var(--sage)">Это не приговор — тело умеет восстанавливаться. Ему нужен другой сигнал.</strong> <a href="#pricing" style="color:var(--sage);font-weight:600">Получить запись + книгу ↓</a>';}
     }
 
     // Sticky mobile
@@ -1135,6 +1249,6 @@
 
 </script>
 
-<div class="sticky-mob" id="stickyMob"><a href="https://payform.ru/jjaA66G/">Получить запись · 1 490 ₽</a></div>
+<div class="sticky-mob" id="stickyMob"><a href="https://payform.ru/jjaA66G/">Запись + книга · 1 490 ₽</a></div>
 </body>
 </html>
