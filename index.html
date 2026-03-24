@@ -530,7 +530,9 @@
         .reveal-d3{transition-delay:.3s}
 
         /* RESPONSIVE */
-        @media(max-width:900px){.choice-grid{grid-template-columns:1fr;max-width:420px;margin-left:auto;margin-right:auto}[style*="grid-template-columns:repeat(3"]{grid-template-columns:1fr!important}[style*="grid-template-columns:280px"]{grid-template-columns:1fr!important}[style*="grid-template-columns:repeat(5"]{grid-template-columns:repeat(3,1fr)!important}.sticky-mob{display:block}
+        @media(max-width:900px){.choice-grid{grid-template-columns:1fr;max-width:420px;margin-left:auto;margin-right:auto}
+            [style*="grid-template-columns:1fr 1fr"][style*="gap:64px"]{grid-template-columns:1fr!important;gap:40px!important;text-align:center}
+            [style*="grid-template-columns:repeat(5"][style*="background:rgba(42"]{grid-template-columns:repeat(3,1fr)!important}[style*="grid-template-columns:repeat(3"]{grid-template-columns:1fr!important}[style*="grid-template-columns:280px"]{grid-template-columns:1fr!important}[style*="grid-template-columns:repeat(5"]{grid-template-columns:repeat(3,1fr)!important}.sticky-mob{display:block}
             .problem-grid{grid-template-columns:1fr;gap:40px}
             .shift-items{grid-template-columns:1fr;gap:12px}
             .learn-grid{grid-template-columns:1fr}
@@ -967,6 +969,67 @@
 <div class="divider"></div>
 
 
+
+
+
+<!-- BOOK HERO -->
+<div class="divider"></div>
+<section style="padding:100px 0;background:linear-gradient(180deg,#1A1E1B 0%,#242A24 100%);position:relative;overflow:hidden">
+    <div style="position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse 60% 50% at 50% 40%,rgba(42,157,92,.08),transparent 70%);pointer-events:none"></div>
+    <div class="container" style="position:relative;z-index:1">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;max-width:960px;margin:0 auto">
+
+            <!-- Book image -->
+            <div class="reveal" style="text-align:center">
+                <img src="https://raw.githubusercontent.com/thebodymindcode/Beyond/main/195a40f8fdc4ba2bc7c1d886881e4710_793b6fe8-4db1-4ec7-ab78-debbadc5fdb0.png" alt="Тело говорит первым — книга" style="width:100%;max-width:380px;height:auto;border-radius:8px;box-shadow:0 30px 80px rgba(0,0,0,.35),0 0 60px rgba(42,157,92,.08)">
+            </div>
+
+            <!-- Book description -->
+            <div class="reveal">
+                <div style="font-size:.6rem;letter-spacing:.28em;text-transform:uppercase;color:var(--sage-light);margin-bottom:16px;font-weight:600">Входит в стоимость</div>
+                <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4.5vw,3rem);font-weight:400;color:#F8F5F0;margin-bottom:12px;line-height:1.15">Тело говорит<br><em style="color:var(--sage-light);font-style:italic">первым</em></h2>
+                <p style="font-size:1.05rem;color:rgba(248,245,240,.65);line-height:1.85;margin-bottom:28px">21 сигнал, который тело посылает за&nbsp;3–5 лет до&nbsp;диагноза. Каждый разобран: что&nbsp;чувствуете, что&nbsp;внутри, во&nbsp;что&nbsp;превращается, какие анализы сдать, к&nbsp;кому&nbsp;идти.</p>
+
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:32px">
+                    <div style="display:flex;align-items:center;gap:8px;font-size:.85rem;color:rgba(248,245,240,.75)"><span style="color:var(--sage-light)">✓</span> 38 страниц</div>
+                    <div style="display:flex;align-items:center;gap:8px;font-size:.85rem;color:rgba(248,245,240,.75)"><span style="color:var(--sage-light)">✓</span> 5 разделов</div>
+                    <div style="display:flex;align-items:center;gap:8px;font-size:.85rem;color:rgba(248,245,240,.75)"><span style="color:var(--sage-light)">✓</span> Анализы к каждому сигналу</div>
+                    <div style="display:flex;align-items:center;gap:8px;font-size:.85rem;color:rgba(248,245,240,.75)"><span style="color:var(--sage-light)">✓</span> Списки специалистов</div>
+                    <div style="display:flex;align-items:center;gap:8px;font-size:.85rem;color:rgba(248,245,240,.75)"><span style="color:var(--sage-light)">✓</span> Чеклист к врачу</div>
+                    <div style="display:flex;align-items:center;gap:8px;font-size:.85rem;color:rgba(248,245,240,.75)"><span style="color:var(--sage-light)">✓</span> PDF — навсегда</div>
+                </div>
+
+                <div style="padding:20px 24px;background:rgba(42,157,92,.08);border:1px solid rgba(42,157,92,.2);border-left:3px solid var(--sage)">
+                    <p style="font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-style:italic;color:rgba(248,245,240,.85);line-height:1.55;margin:0">«Вы не заболеваете внезапно. Вы&nbsp;игнорируете сигналы годами.»</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5 sections strip -->
+        <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:1px;margin-top:56px;max-width:960px;margin-left:auto;margin-right:auto;background:rgba(42,157,92,.12)">
+            <div class="reveal" style="background:#1A1E1B;padding:24px 16px;text-align:center">
+                <div style="font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:var(--sage);margin-bottom:4px">5</div>
+                <div style="font-size:.68rem;color:rgba(248,245,240,.45);letter-spacing:.08em;text-transform:uppercase;font-weight:600">Пищеварение</div>
+            </div>
+            <div class="reveal" style="background:#1A1E1B;padding:24px 16px;text-align:center">
+                <div style="font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:var(--sage);margin-bottom:4px">4</div>
+                <div style="font-size:.68rem;color:rgba(248,245,240,.45);letter-spacing:.08em;text-transform:uppercase;font-weight:600">Кожа и волосы</div>
+            </div>
+            <div class="reveal" style="background:#1A1E1B;padding:24px 16px;text-align:center">
+                <div style="font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:var(--sage);margin-bottom:4px">4</div>
+                <div style="font-size:.68rem;color:rgba(248,245,240,.45);letter-spacing:.08em;text-transform:uppercase;font-weight:600">Энергия и сон</div>
+            </div>
+            <div class="reveal" style="background:#1A1E1B;padding:24px 16px;text-align:center">
+                <div style="font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:var(--sage);margin-bottom:4px">4</div>
+                <div style="font-size:.68rem;color:rgba(248,245,240,.45);letter-spacing:.08em;text-transform:uppercase;font-weight:600">Гормоны</div>
+            </div>
+            <div class="reveal" style="background:#1A1E1B;padding:24px 16px;text-align:center">
+                <div style="font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:var(--sage);margin-bottom:4px">4</div>
+                <div style="font-size:.68rem;color:rgba(248,245,240,.45);letter-spacing:.08em;text-transform:uppercase;font-weight:600">Скрытые сигналы</div>
+            </div>
+        </div>
+    </div>
+</section>
 
 <!-- BOOK + RECORDING = SYSTEM -->
 <div class="divider"></div>
