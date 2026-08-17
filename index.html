@@ -67,7 +67,7 @@
         .cl-item.checked{background:rgba(42,157,92,.04);border-color:var(--sage-border)}
         .cl-box{width:22px;height:22px;border:2px solid var(--sage-border);border-radius:4px;flex-shrink:0;margin-top:2px;display:flex;align-items:center;justify-content:center;transition:all .3s;font-size:12px;color:transparent}
         .cl-item.checked .cl-box{background:var(--sage);border-color:var(--sage);color:#fff}
-        .cl-result{margin-top:28px;padding:24px 28px;background:var(--bg-card);border:1px solid var(--sage-border);display:none;text-align:left}
+        .cl-result{margin-top:28px;padding:24px 28px;background:var(--bg-card);border:1px solid var(--sage-border);display:none;text-align:center}
         .cl-result.show{display:block}
 
         /* Choice Architecture */
@@ -926,6 +926,30 @@ h1,h2,h3,.section-title,.hero-title{text-wrap:balance}
 /* выделение до трёх слов не разрывается никогда */
 .mk,.pd,.zl{white-space:normal}
 .nowrap{white-space:nowrap}
+
+}
+
+/* ─── Чтение с телефона (18.08.2026) ────────────────────────────────────
+   Большой экран остаётся как был: там центрированная раскладка работает,
+   строки короткие и рваного края не видно.
+   На телефоне строка втрое уже, и центрированный абзац превращается в
+   рваную лесенку: каждая строка начинается в новом месте, выделения
+   разрываются пополам. Поэтому здесь основной текст выравниваем по левому
+   краю, а по центру оставляем только заголовки, метки и короткие врезки. */
+@media(max-width:600px){
+  .section p,.chto-lead,.chto-ds,.hb-ds,.learn-txt,
+  .faq-a,.faq-q,.audience-item,.section li,
+  [style*="text-align:center"] p{
+    text-align:left !important;
+  }
+  /* короткое остаётся по центру: так делают и в журналах */
+  h1,h2,h3,.section-title,.section-label,.hero-title,.hero-label,
+  .hero-sub,.hero-sub2,.stat-num,.stat-label,.chip,.badge{
+    text-align:center !important;
+  }
+  /* строка не липнет к краям и не растягивается */
+  .section p,.chto-lead,.learn-txt{max-width:100%}
+}
 </style>
 </head>
 <body>
@@ -1034,7 +1058,7 @@ h1,h2,h3,.section-title,.hero-title{text-wrap:balance}
         <div class="shift-quote reveal">
             «Что, если ваше тело годами посылало вам&nbsp;сигналы?
             И&nbsp;вы&nbsp;просто не&nbsp;знали, как&nbsp;их&nbsp;расшифровать?»
-        <p style="font-size:.88rem;color:var(--text-muted);text-align:center;margin-top:20px;font-style:normal">Запись раскрывает скрытый механизм. Книга даёт карту 30 сигналов. Вместе они впервые дают полную картину.</p>
+        <p style="font-size:.88rem;color:var(--text-muted);text-align:left;margin-top:20px;font-style:normal">Запись раскрывает скрытый механизм. Книга даёт карту 30 сигналов. Вместе они впервые дают полную картину.</p>
         </div>
         <div class="shift-items">
             <div class="shift-item reveal">
