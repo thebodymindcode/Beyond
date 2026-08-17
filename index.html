@@ -892,7 +892,10 @@
 
 /* 5. Длинные слова и адреса переносятся, а не рвут вёрстку */
 @media(max-width:600px){
-  h1,h2,h3,p,li,td,.learn-txt{overflow-wrap:break-word;word-break:normal;hyphens:auto}
+  /* Никаких автоматических переносов: они рвали слова дефисом посреди
+     строки («по-сле», «подсо-знанием»). Только аварийный перенос очень
+     длинных слов, чтобы не ломать раскладку. */
+  h1,h2,h3,p,li,td,.learn-txt{overflow-wrap:anywhere;word-break:normal;hyphens:none}
 }
 
 /* Добор по замеру: подписи заданы прямо в разметке размерами .6-.75rem,
@@ -906,6 +909,10 @@
   [style*="font-size:.78rem"]{font-size:.84rem !important}
   .hero-label,.host-stat-lbl{font-size:.84rem !important}
 }
+
+/* Переносы слов выключены на всей странице: журнальный текст не режется
+   дефисами. */
+*{hyphens:none !important;-webkit-hyphens:none !important}
 </style>
 </head>
 <body>
