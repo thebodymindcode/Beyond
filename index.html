@@ -950,6 +950,18 @@ h1,h2,h3,.section-title,.hero-title{text-wrap:balance}
   /* строка не липнет к краям и не растягивается */
   .section p,.chto-lead,.learn-txt{max-width:100%}
 }
+
+@media(max-width:600px){
+  /* Добор по замеру: длинные абзацы, до которых прежний список не дотянулся.
+     Правило по родителю, чтобы не перечислять каждый блок поимённо. */
+  .hero-sub,.shift-quote,.shift-quote p,.host-info p,.learn-card .learn-txt,
+  .audience-list p,.result-card p,.faq-item p,.bonus-text p,.pricing-note,
+  section p,section li,section .learn-txt{text-align:left !important}
+  /* обратно по центру: короткое, где центр уместен */
+  .hero-label,.section-label,.section-title,.hero-title,h1,h2,h3,
+  .stat-num,.stat-label,.chip,.badge,.btn-primary,.btn-secondary,
+  .final-cta p,.price-big,.host-name,.host-role{text-align:center !important}
+}
 </style>
 </head>
 <body>
