@@ -913,6 +913,19 @@
 /* Переносы слов выключены на всей странице: журнальный текст не режется
    дефисами. */
 *{hyphens:none !important;-webkit-hyphens:none !important}
+
+/* ─── Выделения и висячие слова (18.08.2026) ────────────────────────────
+   Подчёркнутые и подсвеченные фразы рвались между строк: половина фразы
+   с линией на одной строке, вторая на другой. Короткие кавычки вроде
+   «как» и «почему» вообще оставались одни на строке.
+   Лечим тремя вещами: перенос строк с учётом хвоста (pretty), выделение
+   переносится вместе с фоном, а короткие фразы не рвутся вовсе. */
+p,li,.learn-txt,.chto-ds,.hb-ds,.section p{text-wrap:pretty}
+h1,h2,h3,.section-title,.hero-title{text-wrap:balance}
+.mk,.pd,.zl,em,strong{box-decoration-break:clone;-webkit-box-decoration-break:clone}
+/* выделение до трёх слов не разрывается никогда */
+.mk,.pd,.zl{white-space:normal}
+.nowrap{white-space:nowrap}
 </style>
 </head>
 <body>
@@ -936,7 +949,7 @@
         <span class="line-2">заболеваний</span>
     </h1>
     <p class="hero-sub">
-        Система из записи и книги, которая раскрывает связь между симптомами, режимом тела и&nbsp;восстановлением
+        Система из записи и книги, которая раскрывает связь между симптомами, режимом тела и&nbsp;восстановлением
     </p>
     <p class="hero-sub2">
         Что, если причина глубже, чем кажется?
@@ -953,7 +966,7 @@
         <img src="kniga-telo.jpg" alt="Книга «Тело говорит первым»" loading="lazy">
         <div class="hb-tx">
           <div class="hb-nm">Книга «Тело говорит первым»</div>
-          <div class="hb-ds">40 страниц · 30 сигналов тела · 7 систем</div>
+          <div class="hb-ds">40 страниц · 30 сигналов тела · 7 систем</div>
           <div class="hb-in">Входит в стоимость</div>
         </div>
       </div>
@@ -961,7 +974,7 @@
         <img src="kniga-vagus.jpg" alt="Модуль «Блуждающий нерв. Язык тела»" loading="lazy">
         <div class="hb-tx">
           <div class="hb-nm">Модуль «Блуждающий нерв»</div>
-          <div class="hb-ds">45 страниц · 10 практик · 2 протокола</div>
+          <div class="hb-ds">45 страниц · 10 практик · 2 протокола</div>
           <div class="hb-in">Новый бонус, входит в стоимость</div>
         </div>
       </div>
@@ -1021,7 +1034,7 @@
         <div class="shift-quote reveal">
             «Что, если ваше тело годами посылало вам&nbsp;сигналы?
             И&nbsp;вы&nbsp;просто не&nbsp;знали, как&nbsp;их&nbsp;расшифровать?»
-        <p style="font-size:.88rem;color:var(--text-muted);text-align:center;margin-top:20px;font-style:normal">Запись раскрывает скрытый механизм. Книга даёт карту 30 сигналов. Вместе они впервые дают полную картину.</p>
+        <p style="font-size:.88rem;color:var(--text-muted);text-align:center;margin-top:20px;font-style:normal">Запись раскрывает скрытый механизм. Книга даёт карту 30 сигналов. Вместе они впервые дают полную картину.</p>
         </div>
         <div class="shift-items">
             <div class="shift-item reveal">
@@ -1052,7 +1065,7 @@
         <div class="reveal" style="text-align:center;margin-bottom:40px">
             <div class="section-label">✦ Скрытая диагностика</div>
             <h2 class="section-title" style="font-size:clamp(1.8rem,4vw,2.5rem)">Тест: ваше тело в режиме борьбы?</h2>
-            <p style="font-size:.95rem;color:var(--text-muted);margin-top:12px">Каждый пункт: сигнал, который большинство людей <span class="pd">списывает на возраст или стресс</span>.</p>
+            <p style="font-size:.95rem;color:var(--text-muted);margin-top:12px">Каждый пункт: сигнал, который большинство людей <span class="pd">списывает на возраст или стресс</span>.</p>
         </div>
         <div id="checklist">
             <div class="cl-item" onclick="toggleCheck(this)"><div class="cl-box">✓</div><div style="font-size:.95rem;color:var(--text-body);line-height:1.6">Хроническая усталость, которая не проходит после отдыха</div></div>
@@ -1078,7 +1091,7 @@
         <div class="reveal" style="text-align:center">
             <div class="section-label">Что скрыто внутри</div>
             <h2 class="section-title">Запись + книга: что вы <span class="accent">узнаете</span></h2>
-            <p class="section-sub center">90 минут записи, которые <span class="mk">меняют понимание тела</span>. И 40 страниц, которые <span class="mk">меняют разговор с врачом</span>.</p>
+            <p class="section-sub center">90 минут записи, которые <span class="mk nowrap">меняют понимание тела</span>. И 40 страниц, которые <span class="mk">меняют разговор с врачом</span>.</p>
         </div>
 
         <div class="learn-grid">
@@ -1115,14 +1128,14 @@
                 <div class="learn-txt">Что значит <strong>перестать быть версией себя из прошлого</strong> и как это связано со здоровьем</div>
             </div>
             <div class="learn-card accent-card reveal">
-                <div class="learn-txt">В записи живая практика, которую вы можете повторить в любой момент и почувствовать разницу.</div>
+                <div class="learn-txt">В записи живая практика, которую вы можете повторить в любой момент и почувствовать разницу.</div>
             </div>
         </div>
 
         <!-- Book content preview -->
         <div class="reveal" style="margin-top:48px;text-align:center">
             <div class="section-label">+ В книге «Тело говорит первым»</div>
-            <p class="section-sub center" style="margin-bottom:28px">30 конкретных сигналов тела с анализами, врачами и чеклистом</p>
+            <p class="section-sub center" style="margin-bottom:28px">30 конкретных сигналов тела с анализами, врачами и чеклистом</p>
         </div>
         <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:0">
             <div class="learn-card reveal" style="text-align:center;justify-content:center;padding:24px 16px;flex-direction:column;align-items:center">
@@ -1151,14 +1164,14 @@
 <section class="section chto-section zona-tint"><div class="container">
 <div class="section-label">Что вы получите</div>
 <h2 class="section-title">Шесть вещей, которые остаются <em>навсегда</em></h2>
-<p class="chto-lead">Запись, книга и бонусный модуль складываются в один набор. Ниже то, <span class="pd">чем вы пользуетесь уже после встречи</span>.</p>
+<p class="chto-lead">Запись, книга и бонусный модуль складываются в один набор. Ниже то, <span class="pd">чем вы пользуетесь уже после встречи</span>.</p>
 <div class="chto-grid">
-  <div class="chto-card"><div class="chto-ic"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M16 5c-4 0-7 2.6-7 6.2 0 2.4 1.2 3.8 2.4 5.2 1 1.2 1.6 2.3 1.6 3.8V22h6v-1.8c0-1.5.6-2.6 1.6-3.8 1.2-1.4 2.4-2.8 2.4-5.2C23 7.6 20 5 16 5Z"/><path d="M13 25h6M14 28h4"/></svg></div><div class="chto-nm">Карта сигналов тела</div><div class="chto-ds">Тридцать откликов по семи системам: что тело говорит вздутием, бессонницей, сжатой челюстью.</div><div class="chto-num">01</div></div>
-  <div class="chto-card"><div class="chto-ic"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4 4 26h24L16 4Z"/><path d="M16 13v6M16 22.5v.1"/></svg></div><div class="chto-nm">Разбор красной зоны</div><div class="chto-ds">Где сигнал перестаёт быть бытовым и требует врача. Отдельный список без запугивания.</div><div class="chto-num">02</div></div>
-  <div class="chto-card"><div class="chto-ic"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4h8v5h-8zM9 9h14v19H9z"/><path d="M13 15h6M13 19h6M13 23h4"/></svg></div><div class="chto-nm">Что смотреть в анализах</div><div class="chto-ds">Пятьдесят с лишним показателей: какие имеют смысл при вашем наборе сигналов, а какие нет.</div><div class="chto-num">03</div></div>
-  <div class="chto-card"><div class="chto-ic"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M16 5v10M16 15c0 4-3 5-3 8a3 3 0 0 0 6 0c0-3-3-4-3-8Z"/><path d="M11 9c-2.5 1-4 3-4 6M21 9c2.5 1 4 3 4 6"/></svg></div><div class="chto-nm">Десять практик вагуса</div><div class="chto-ds">От тридцати секунд до двадцати минут. Одни снимают приступ, другие меняют тонус за две недели.</div><div class="chto-num">04</div></div>
-  <div class="chto-card"><div class="chto-ic"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8h20M6 16h20M6 24h20"/><circle cx="11" cy="8" r="2.4"/><circle cx="21" cy="16" r="2.4"/><circle cx="14" cy="24" r="2.4"/></svg></div><div class="chto-nm">Два протокола на день</div><div class="chto-ds">Утренний и вечерний: что делать руками, телом и дыханием, чтобы канал оставался открытым.</div><div class="chto-num">05</div></div>
-  <div class="chto-card"><div class="chto-ic"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8h20v20H6zM6 13h20M11 5v5M21 5v5"/><path d="M11 18l3 3 6-6"/></svg></div><div class="chto-nm">Карта наблюдения на месяц</div><div class="chto-ds">Тридцать дней отметок: видно, что сдвинулось, а что осталось на месте.</div><div class="chto-num">06</div></div>
+  <div class="chto-card"><div class="chto-ic"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M16 5c-4 0-7 2.6-7 6.2 0 2.4 1.2 3.8 2.4 5.2 1 1.2 1.6 2.3 1.6 3.8V22h6v-1.8c0-1.5.6-2.6 1.6-3.8 1.2-1.4 2.4-2.8 2.4-5.2C23 7.6 20 5 16 5Z"/><path d="M13 25h6M14 28h4"/></svg></div><div class="chto-nm">Карта сигналов тела</div><div class="chto-ds">Тридцать откликов по семи системам: что тело говорит вздутием, бессонницей, сжатой челюстью.</div><div class="chto-num">01</div></div>
+  <div class="chto-card"><div class="chto-ic"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4 4 26h24L16 4Z"/><path d="M16 13v6M16 22.5v.1"/></svg></div><div class="chto-nm">Разбор красной зоны</div><div class="chto-ds">Где сигнал перестаёт быть бытовым и требует врача. Отдельный список без запугивания.</div><div class="chto-num">02</div></div>
+  <div class="chto-card"><div class="chto-ic"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4h8v5h-8zM9 9h14v19H9z"/><path d="M13 15h6M13 19h6M13 23h4"/></svg></div><div class="chto-nm">Что смотреть в анализах</div><div class="chto-ds">Пятьдесят с лишним показателей: какие имеют смысл при вашем наборе сигналов, а какие нет.</div><div class="chto-num">03</div></div>
+  <div class="chto-card"><div class="chto-ic"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M16 5v10M16 15c0 4-3 5-3 8a3 3 0 0 0 6 0c0-3-3-4-3-8Z"/><path d="M11 9c-2.5 1-4 3-4 6M21 9c2.5 1 4 3 4 6"/></svg></div><div class="chto-nm">Десять практик вагуса</div><div class="chto-ds">От тридцати секунд до двадцати минут. Одни снимают приступ, другие меняют тонус за две недели.</div><div class="chto-num">04</div></div>
+  <div class="chto-card"><div class="chto-ic"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8h20M6 16h20M6 24h20"/><circle cx="11" cy="8" r="2.4"/><circle cx="21" cy="16" r="2.4"/><circle cx="14" cy="24" r="2.4"/></svg></div><div class="chto-nm">Два протокола на день</div><div class="chto-ds">Утренний и вечерний: что делать руками, телом и дыханием, чтобы канал оставался открытым.</div><div class="chto-num">05</div></div>
+  <div class="chto-card"><div class="chto-ic"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8h20v20H6zM6 13h20M11 5v5M21 5v5"/><path d="M11 18l3 3 6-6"/></svg></div><div class="chto-nm">Карта наблюдения на месяц</div><div class="chto-ds">Тридцать дней отметок: видно, что сдвинулось, а что осталось на месте.</div><div class="chto-num">06</div></div>
 </div></div></section>
 
 
@@ -1176,35 +1189,35 @@
                 <div class="step-num">01</div>
                 <div>
                     <h3 class="step-title">Оплата → мгновенный доступ</h3>
-                    <p class="step-desc">Сразу после оплаты вы получаете запись встречи + книгу «Тело говорит первым» в PDF. Смотрите и читайте в удобное время.</p>
+                    <p class="step-desc">Сразу после оплаты вы получаете запись встречи + книгу «Тело говорит первым» в PDF. Смотрите и читайте в удобное время.</p>
                 </div>
             </div>
             <div class="process-step reveal">
                 <div class="step-num">02</div>
                 <div>
                     <h3 class="step-title">Книга: начните с чеклиста</h3>
-                    <p class="step-desc">Откройте его в конце книги и отметьте свои сигналы из 30. Прочитайте разделы по своим симптомам. Выпишите анализы, которые нужно сдать.</p>
+                    <p class="step-desc">Откройте его в конце книги и отметьте свои сигналы из 30. Прочитайте разделы по своим симптомам. Выпишите анализы, которые нужно сдать.</p>
                 </div>
             </div>
             <div class="process-step reveal">
                 <div class="step-num">03</div>
                 <div>
                     <h3 class="step-title">Запись: поймите причину</h3>
-                    <p class="step-desc">90 минут разбора механики тела: почему оно застряло в режиме борьбы и что возвращает его в восстановление. Живая практика внутри.</p>
+                    <p class="step-desc">90 минут разбора механики тела: почему оно застряло в режиме борьбы и что возвращает его в восстановление. Живая практика внутри.</p>
                 </div>
             </div>
             <div class="process-step reveal">
                 <div class="step-num">04</div>
                 <div>
                     <h3 class="step-title">Инструмент: переключите тело</h3>
-                    <p class="step-desc">Один приём из записи: повторяйте сколько угодно. Конспект и книга останутся с вами навсегда.</p>
+                    <p class="step-desc">Один приём из записи: повторяйте сколько угодно. Конспект и книга останутся с вами навсегда.</p>
                 </div>
             </div>
             <div class="process-step reveal">
                 <div class="step-num">05</div>
                 <div>
                     <h3 class="step-title">К врачу подготовленным</h3>
-                    <p class="step-desc">Возьмите чеклист из книги на приём. Названия анализов и нужные специалисты там уже выписаны.</p>
+                    <p class="step-desc">Возьмите чеклист из книги на приём. Названия анализов и нужные специалисты там уже выписаны.</p>
                 </div>
             </div>
         </div>
@@ -1256,7 +1269,7 @@
         <div class="reveal" style="text-align:center">
             <div class="section-label">Результаты</div>
             <h2 class="section-title">Они перестали <span class="accent">воевать с телом</span></h2>
-            <p class="section-sub center" style="margin-bottom:50px">974 человека уже посмотрели запись. Вот что они говорят.</p>
+            <p class="section-sub center" style="margin-bottom:50px">974 человека уже посмотрели запись. Вот что они говорят.</p>
         </div>
         <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px">
             <div class="reveal" style="background:var(--bg-card);border:1px solid var(--border);padding:36px 28px;text-align:left;position:relative"><div style="position:absolute;top:0;left:0;right:0;height:2px;background:var(--sage);opacity:.3"></div><div style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-style:italic;color:var(--text);line-height:1.6;margin-bottom:24px;padding-left:20px;border-left:2px solid var(--sage-border)">Впервые за 4 года проснулась без боли в спине. Тело наконец расслабилось.</div><div style="display:flex;align-items:center;gap:14px"><div style="width:40px;height:40px;border-radius:50%;background:var(--bg-sage);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;color:var(--sage)">Е</div><div><div style="font-size:.85rem;font-weight:700;color:var(--text)">Екатерина Л.</div><div style="font-size:.78rem;color:var(--text-dim)">психолог, 36 лет</div></div></div><div style="margin-top:16px;padding-top:12px;border-top:1px solid var(--border);font-size:.82rem;font-weight:700;color:var(--sage)">Боль в спине ↓ за 5 дней</div></div>
@@ -1287,8 +1300,8 @@
             <div class="host-info reveal">
                 <h3>Дарья Ростовцева</h3>
                 <div class="host-role">Сооснователь проекта «Архитектура сознания»</div>
-                <p>Практик на стыке нейробиологии и работы с подсознанием. Автор «Протокола остановки ума» и «Кода денег».</p>
-                <p>Научный подход без «воды». Практики, которые можно проверить на себе и почувствовать разницу.</p>
+                <p>Практик на стыке нейробиологии и работы с подсознанием. Автор «Протокола остановки ума» и «Кода денег».</p>
+                <p>Научный подход без «воды». Практики, которые можно проверить на себе и почувствовать разницу.</p>
                 <div class="host-stats">
                     <div>
                         <div class="host-stat-val">2000+</div>
@@ -1326,7 +1339,7 @@
             <div class="reveal">
                 <div style="font-size:.6rem;letter-spacing:.28em;text-transform:uppercase;color:var(--sage-light);margin-bottom:16px;font-weight:600">Входит в стоимость</div>
                 <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4.5vw,3rem);font-weight:400;color:#F8F5F0;margin-bottom:12px;line-height:1.15">Тело говорит<br><em style="color:var(--sage-light);font-style:italic">первым</em></h2>
-                <p style="font-size:1.05rem;color:rgba(248,245,240,.65);line-height:1.85;margin-bottom:28px">30 сигналов по&nbsp;7 системам тела плюс 5&nbsp;экстренных из&nbsp;красной зоны. Каждый разобран по&nbsp;формуле: что&nbsp;чувствуете → что&nbsp;внутри → во&nbsp;что&nbsp;превращается → какие анализы → к&nbsp;кому&nbsp;идти. Каждое название дано полностью, всего их&nbsp;50+.</p>
+                <p style="font-size:1.05rem;color:rgba(248,245,240,.65);line-height:1.85;margin-bottom:28px">30 сигналов по&nbsp;7 системам тела плюс 5&nbsp;экстренных из&nbsp;красной зоны. Каждый разобран по&nbsp;формуле: что&nbsp;чувствуете → что&nbsp;внутри → во&nbsp;что&nbsp;превращается → какие анализы → к&nbsp;кому&nbsp;идти. Каждое название дано полностью, всего их&nbsp;50+.</p>
 
                 <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:32px">
                     <div style="display:flex;align-items:center;gap:8px;font-size:.85rem;color:rgba(248,245,240,.75)"><span style="color:var(--sage-light)">✓</span> 40 страниц</div>
@@ -1338,7 +1351,7 @@
                 </div>
 
                 <div style="padding:20px 24px;background:rgba(42,157,92,.08);border:1px solid rgba(42,157,92,.2);border-left:3px solid var(--sage)">
-                    <p style="font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-style:italic;color:rgba(248,245,240,.85);line-height:1.55;margin:0">«Вы не заболеваете внезапно. Вы&nbsp;игнорируете сигналы годами.»</p>
+                    <p style="font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-style:italic;color:rgba(248,245,240,.85);line-height:1.55;margin:0">«Вы не заболеваете внезапно. Вы&nbsp;игнорируете сигналы годами.»</p>
                 </div>
             </div>
         </div>
@@ -1388,7 +1401,7 @@
         <div class="reveal" style="text-align:center">
             <div class="section-label">Почему это работает</div>
             <h2 class="section-title">Разные жалобы <span class="accent">складываются в систему.</span></h2>
-            <p class="section-sub center" style="margin-bottom:56px">Запись раскрывает механизм, который <span class="mk">связывает все ваши симптомы в одну цепочку</span>. Книга даёт карту 30 сигналов по 7 системам тела с конкретными анализами и специалистами. Вместе это то, чего не даст ни один стандартный приём.</p>
+            <p class="section-sub center" style="margin-bottom:56px">Запись раскрывает механизм, который <span class="mk">связывает все ваши симптомы в одну цепочку</span>. Книга даёт карту 30 сигналов по 7 системам тела с конкретными анализами и специалистами. Вместе это то, чего не даст ни один стандартный приём.</p>
         </div>
 
         <!-- Two columns: Recording + Book -->
@@ -1460,7 +1473,7 @@
                 <div style="font-size:.88rem;color:var(--text-body);line-height:1.6">Визитов к врачу связаны со стрессом, а не с инфекцией</div>
             </div>
         </div>
-        <p class="reveal" style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.3rem,3vw,1.7rem);font-style:italic;color:var(--text);line-height:1.5;max-width:600px;margin:0 auto">Каждый день в режиме борьбы тело тренирует выживание. Восстановление откладывается.</p>
+        <p class="reveal" style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.3rem,3vw,1.7rem);font-style:italic;color:var(--text);line-height:1.5;max-width:600px;margin:0 auto">Каждый день в режиме борьбы тело тренирует выживание. Восстановление откладывается.</p>
     </div>
 </section>
 
@@ -1473,7 +1486,7 @@
             <div class="section-label">Новый бонусный модуль</div>
             <h2 class="section-title">Блуждающий нерв. <span class="accent">Язык тела</span></h2>
         </div>
-        <p class="reveal section-sub center" style="margin-top:12px;max-width:560px;margin-left:auto;margin-right:auto">На встрече мы разобрали, <strong>почему</strong> тело болеет. Здесь ответ на следующий вопрос: <strong><span class="zl">что делать каждый день</span></strong>, руками, телом, дыханием.</p>
+        <p class="reveal section-sub center" style="margin-top:12px;max-width:560px;margin-left:auto;margin-right:auto">На встрече мы разобрали, <strong>почему</strong> тело болеет. Здесь ответ на следующий вопрос: <strong><span class="zl">что делать каждый день</span></strong>, руками, телом, дыханием.</p>
 
         <div style="display:grid;grid-template-columns:280px 1fr;gap:40px;margin-top:48px;align-items:start" class="reveal bonus-layout">
             <div style="text-align:center">
@@ -1481,9 +1494,9 @@
                 <div style="font-family:'DM Mono',monospace;font-size:.6rem;color:var(--text-dim);margin-top:12px;letter-spacing:.1em;text-transform:uppercase">45 страниц · PDF · Бонус к записи</div>
             </div>
             <div>
-                <p style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.2rem,3vw,1.5rem);font-style:italic;color:var(--text);line-height:1.5;margin-bottom:24px">Решение принимает сознание. Но чтобы оно приземлилось в тело: в сердце, в живот, в дыхание, в сон. Для этого канал должен быть открыт. <span class="mk">Вагус и есть этот канал</span>.</p>
+                <p style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.2rem,3vw,1.5rem);font-style:italic;color:var(--text);line-height:1.5;margin-bottom:24px">Решение принимает сознание. Но чтобы оно приземлилось в тело: в сердце, в живот, в дыхание, в сон. Для этого канал должен быть открыт. <span class="mk">Вагус и есть этот канал</span>.</p>
 
-                <p style="font-size:.92rem;color:var(--text-body);line-height:1.8;margin-bottom:20px">45 страниц. Анатомия блуждающего нерва простым языком. Три состояния нервной системы и как распознать своё. Карта сигналов тела: диагностика без тестов и приборов.</p>
+                <p style="font-size:.92rem;color:var(--text-body);line-height:1.8;margin-bottom:20px">45 страниц. Анатомия блуждающего нерва простым языком. Три состояния нервной системы и как распознать своё. Карта сигналов тела: диагностика без тестов и приборов.</p>
 
                 <p style="font-size:.92rem;color:var(--text-body);line-height:1.8;margin-bottom:20px">Внутри<strong>10 практик</strong>, от 30 секунд до 20 минут. Одни работают мгновенно, в момент тревоги. Другие меняют базовый тонус нервной системы за две недели. Часть из них делается прямо в пробке. И есть те, после которых тело впервые за годы чувствует, что значит «безопасно».</p>
 
@@ -1502,12 +1515,12 @@
                     </div>
                 </div>
 
-                <p style="font-size:.88rem;color:var(--text-muted);line-height:1.7;margin-bottom:0">Пошаговые схемы и карта наблюдения на 30 дней, чтобы увидеть изменения, которые обычно не замечают. Вся нейробиология проверена по первоисточникам.</p>
+                <p style="font-size:.88rem;color:var(--text-muted);line-height:1.7;margin-bottom:0">Пошаговые схемы и карта наблюдения на 30 дней, чтобы увидеть изменения, которые обычно не замечают. Вся нейробиология проверена по первоисточникам.</p>
             </div>
         </div>
 
         <div class="reveal" style="text-align:center;margin-top:40px;padding:24px;background:var(--bg-card);border-top:2px solid var(--sage)">
-            <p style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.1rem,2.5vw,1.35rem);font-style:italic;color:var(--text);margin:0">Запись «За пределами заболеваний» отвечает на вопрос <strong>«почему»</strong>.<br>Модуль «Блуждающий нерв» отвечает на вопрос <strong>«как»</strong>.<br>Вместе складывается полная система.</p>
+            <p style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.1rem,2.5vw,1.35rem);font-style:italic;color:var(--text);margin:0">Запись «За пределами заболеваний» отвечает на вопрос <strong>«почему»</strong>.<br>Модуль «Блуждающий нерв» отвечает на вопрос <strong>«как»</strong>.<br>Вместе складывается полная система.</p>
         </div>
     </div>
 </section>
@@ -1522,7 +1535,7 @@
             <h2 class="section-title">Получить <span class="accent">запись</span></h2>
         </div>
 
-        <p class="reveal section-sub center" style="margin-top:12px">Три пути для разных ситуаций. Каждый из них работает.</p>
+        <p class="reveal section-sub center" style="margin-top:12px">Три пути для разных ситуаций. Каждый из них работает.</p>
 
         <div class="choice-grid">
             <!-- Path 1: Free — read article -->
@@ -1637,8 +1650,8 @@
         </p>
         <a href="https://payform.ru/91b2Ki6/" target="_blank" rel="noopener" class="btn-primary">Получить запись + книгу + модуль →</a>
         <p class="final-ps">
-            90 минут записи + 40 страниц книги + конспект + чеклист к врачу.
-            Всё, что нужно, чтобы перестать воевать с телом.
+            90 минут записи + 40 страниц книги + конспект + чеклист к врачу.
+            Всё, что нужно, чтобы перестать воевать с телом.
         </p>
     </div>
 </section>
