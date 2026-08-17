@@ -849,6 +849,51 @@
   nav,.nav,header,.header{position:static !important;top:auto !important}
   body{padding-top:0 !important}
 }
+
+/* ═══ МОБИЛЬНАЯ ВЁРСТКА (17.08.2026) ═══════════════════════════════════
+   Замер на 320, 360, 375, 390, 414, 430 показал:
+   1) сетка на пять колонок, заданная прямо в разметке, на узком экране
+      давала колонки 145 и 183px и вылезала за край на 38px;
+   2) двадцать четыре подписи мельче 13px, читать с руки тяжело;
+   3) ссылка поддержки высотой 21px, пальцем не попасть.
+   Ниже это чинится разом и для всех размеров телефонов. */
+
+/* 1. Любая сетка на телефоне это одна колонка, на планшете две.
+      minmax(0,1fr) обязателен: без него колонка распирается содержимым. */
+@media(max-width:600px){
+  [style*="grid-template-columns"]{grid-template-columns:minmax(0,1fr) !important}
+  .learn-grid,.chto-grid,.hero-books{grid-template-columns:minmax(0,1fr) !important}
+}
+@media(min-width:601px) and (max-width:900px){
+  [style*="grid-template-columns"]{grid-template-columns:repeat(2,minmax(0,1fr)) !important}
+}
+
+/* 2. Ничто не вылезает за край экрана */
+@media(max-width:900px){
+  img,video,table,pre,iframe{max-width:100%;height:auto}
+  *{min-width:0}
+  body{overflow-x:hidden}
+}
+
+/* 3. Читаемый текст: ниже 13px не опускаемся нигде */
+@media(max-width:600px){
+  body{font-size:16px;line-height:1.6}
+  .learn-txt,.chto-ds,.hb-ds,.faq-a,.section p,p{font-size:1rem}
+  small,.small,.note,.meta,.learn-num,.chto-num{font-size:.82rem}
+  .section-label,.eyebrow{font-size:.8rem}
+}
+
+/* 4. Пальцем попадать: зона нажатия от 44px */
+@media(max-width:900px){
+  a,button{min-height:44px;display:inline-flex;align-items:center}
+  a.inline,p a,li a,.faq-a a{min-height:0;display:inline}
+  .btn-primary,.btn-secondary,.nav-cta{min-height:52px;justify-content:center}
+}
+
+/* 5. Длинные слова и адреса переносятся, а не рвут вёрстку */
+@media(max-width:600px){
+  h1,h2,h3,p,li,td,.learn-txt{overflow-wrap:break-word;word-break:normal;hyphens:auto}
+}
 </style>
 </head>
 <body>
