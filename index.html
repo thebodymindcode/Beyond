@@ -7,7 +7,7 @@
 <meta name="description" content="Запись встречи 90 минут + книга «Тело говорит первым» + модуль «Блуждающий нерв». Почему тело застряло в режиме борьбы и как переключить его в восстановление. Архитектура сознания.">
 <meta property="og:title" content="За пределами заболеваний: запись + книга + модуль">
 <meta property="og:description" content="90 минут о том, почему тело болеет, и практика переключения. Книга «Тело говорит первым»: 30 сигналов, 50+ анализов. Доступ навсегда.">
-<meta property="og:image" content="https://thebodymindcode.github.io/Beyond/og-cover-beyond.jpg">
+<meta property="og:image" content="https://thebodymindcode.ru/Beyond/og-cover-beyond.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:url" content="https://thebodymindcode.github.io/Beyond/">
@@ -16,7 +16,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="За пределами заболеваний: запись + книга + модуль">
 <meta name="twitter:description" content="90 минут о том, почему тело болеет, и практика переключения. Доступ навсегда.">
-<meta name="twitter:image" content="https://thebodymindcode.github.io/Beyond/og-cover-beyond.jpg">
+<meta name="twitter:image" content="https://thebodymindcode.ru/Beyond/og-cover-beyond.jpg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Raleway:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
@@ -840,6 +840,15 @@
   .cl-wrap{padding:var(--rt-a) 0 !important}
   section[class=""],section:not([class]){padding:var(--rt) 0}
 }
+
+/* ─── Телефон: шапка не ездит и не закрывает экран (17.08.2026) ─────────
+   Липкая шапка вместе с кнопкой занимала верх экрана и мешала читать.
+   На телефоне она остаётся наверху страницы и уезжает вместе с ней.
+   На широком экране поведение прежнее. */
+@media(max-width:900px){
+  nav,.nav,header,.header{position:static !important;top:auto !important}
+  body{padding-top:0 !important}
+}
 </style>
 </head>
 <body>
@@ -877,7 +886,7 @@
     <!-- Что входит: книга и бонусный модуль, оба видны сразу -->
     <div class="hero-books">
       <div class="hero-book">
-        <img src="/Beyond/kniga-telo.jpg" alt="Книга «Тело говорит первым»" loading="lazy">
+        <img src="kniga-telo.jpg" alt="Книга «Тело говорит первым»" loading="lazy">
         <div class="hb-tx">
           <div class="hb-nm">Книга «Тело говорит первым»</div>
           <div class="hb-ds">40 страниц · 30 сигналов тела · 7 систем</div>
@@ -885,7 +894,7 @@
         </div>
       </div>
       <div class="hero-book bonus">
-        <img src="/Beyond/kniga-vagus.jpg" alt="Модуль «Блуждающий нерв. Язык тела»" loading="lazy">
+        <img src="kniga-vagus.jpg" alt="Модуль «Блуждающий нерв. Язык тела»" loading="lazy">
         <div class="hb-tx">
           <div class="hb-nm">Модуль «Блуждающий нерв»</div>
           <div class="hb-ds">45 страниц · 10 практик · 2 протокола</div>
@@ -1209,7 +1218,7 @@
         </div>
         <div class="host-layout">
             <div class="host-photo reveal">
-                <img src="https://thebodymindcode.github.io/session1/daria.jpg" alt="Дарья Ростовцева">
+                <img loading="lazy" decoding="async" src="https://thebodymindcode.github.io/session1/daria.jpg" alt="Дарья Ростовцева">
             </div>
             <div class="host-info reveal">
                 <h3>Дарья Ростовцева</h3>
@@ -1246,7 +1255,7 @@
 
             <!-- Book image -->
             <div class="reveal" style="text-align:center">
-                <img src="https://raw.githubusercontent.com/thebodymindcode/bodybook/main/bf3110f4c9c90465be2e128ab481458b_c9eeed4b-0525-41e8-9e32-60736a3f473e.png" alt="Тело говорит первым — книга" style="width:100%;max-width:380px;height:auto;border-radius:8px;box-shadow:0 30px 80px rgba(0,0,0,.35),0 0 60px rgba(42,157,92,.08)">
+                <img loading="lazy" decoding="async" src="kniga.webp" alt="Тело говорит первым — книга" style="width:100%;max-width:380px;height:auto;border-radius:8px;box-shadow:0 30px 80px rgba(0,0,0,.35),0 0 60px rgba(42,157,92,.08)">
             </div>
 
             <!-- Book description -->
@@ -1342,7 +1351,7 @@
             <div class="reveal" style="background:var(--bg-card);border:1px solid var(--border);padding:36px 28px;position:relative">
                 <div style="position:absolute;top:0;left:0;right:0;height:3px;background:var(--sage);opacity:.4"></div>
                 <div style="text-align:center;margin-bottom:24px">
-                    <img src="https://raw.githubusercontent.com/thebodymindcode/bodybook/main/bf3110f4c9c90465be2e128ab481458b_c9eeed4b-0525-41e8-9e32-60736a3f473e.png" alt="Тело говорит первым" style="width:160px;height:auto;margin:0 auto 16px;display:block;border-radius:4px;box-shadow:0 8px 24px rgba(0,0,0,.08)">
+                    <img loading="lazy" decoding="async" src="kniga.webp" alt="Тело говорит первым" style="width:160px;height:auto;margin:0 auto 16px;display:block;border-radius:4px;box-shadow:0 8px 24px rgba(0,0,0,.08)">
                     <div style="font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:var(--text)">Книга «Тело говорит первым»</div>
                     <div style="font-size:.78rem;color:var(--text-muted);margin-top:4px">40 страниц · PDF · 30 сигналов</div>
                 </div>
@@ -1404,7 +1413,7 @@
 
         <div style="display:grid;grid-template-columns:280px 1fr;gap:40px;margin-top:48px;align-items:start" class="reveal bonus-layout">
             <div style="text-align:center">
-                <img src="https://raw.githubusercontent.com/thebodymindcode/Beyond/main/fee571649da396f89784639210398575_748d777a-99c2-413c-8ba1-4b5fa6b81a28.jpg" alt="Блуждающий нерв — Язык тела" style="width:100%;max-width:260px;box-shadow:0 12px 40px rgba(0,0,0,.12)">
+                <img loading="lazy" decoding="async" src="vagus.webp" alt="Блуждающий нерв — Язык тела" style="width:100%;max-width:260px;box-shadow:0 12px 40px rgba(0,0,0,.12)">
                 <div style="font-family:'DM Mono',monospace;font-size:.6rem;color:var(--text-dim);margin-top:12px;letter-spacing:.1em;text-transform:uppercase">45 страниц · PDF · Бонус к записи</div>
             </div>
             <div>
