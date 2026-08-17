@@ -894,6 +894,18 @@
 @media(max-width:600px){
   h1,h2,h3,p,li,td,.learn-txt{overflow-wrap:break-word;word-break:normal;hyphens:auto}
 }
+
+/* Добор по замеру: подписи заданы прямо в разметке размерами .6-.75rem,
+   на телефоне это 10-12px. Поднимаем до читаемых, не трогая раскладку. */
+@media(max-width:600px){
+  [style*="font-size:.6rem"],[style*="font-size:0.6rem"],
+  [style*="font-size:.62rem"],[style*="font-size:.63rem"],
+  [style*="font-size:.65rem"],[style*="font-size:.66rem"],
+  [style*="font-size:.68rem"],[style*="font-size:.7rem"],
+  [style*="font-size:.72rem"],[style*="font-size:.75rem"],
+  [style*="font-size:.78rem"]{font-size:.84rem !important}
+  .hero-label,.host-stat-lbl{font-size:.84rem !important}
+}
 </style>
 </head>
 <body>
