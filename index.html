@@ -676,6 +676,67 @@
   nav{position:static !important;background:var(--bg-cream) !important}
   body{padding-top:0 !important}
 }
+
+/* ─── Первый экран: что входит в набор (18.08.2026) ─────────────────────
+   Раньше здесь была одна карточка книги, а бонусный модуль про блуждающий
+   нерв стоял двенадцатым разделом, до него доходили единицы. Теперь обе
+   части набора видно сразу. Стиль карточки взят прежний, добавлена вторая. */
+.hero-set{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;
+  margin-top:34px;max-width:760px;width:100%;
+  opacity:0;animation:fadeUp .8s ease .95s forwards}
+.hs-card{display:flex;align-items:center;gap:16px;padding:18px 20px;text-align:left;
+  background:rgba(255,255,255,.68);backdrop-filter:blur(8px);
+  border:1px solid var(--sage-border);border-radius:4px;transition:.35s}
+.hs-card:hover{background:rgba(255,255,255,.92);transform:translateY(-2px)}
+.hs-card.hs-new{border-color:var(--sage);box-shadow:0 6px 22px rgba(74,124,89,.10)}
+.hs-card img{width:58px;height:auto;flex-shrink:0;border-radius:3px;
+  box-shadow:0 4px 14px rgba(0,0,0,.12)}
+.hs-nm{font-family:'Cormorant Garamond',serif;font-size:1.14rem;font-weight:700;
+  color:var(--text);line-height:1.25}
+.hs-ds{font-size:.88rem;color:var(--text-muted);line-height:1.45;margin-top:5px}
+.hs-in{font-size:.8rem;color:var(--sage);font-weight:700;margin-top:6px}
+.hs-card.hs-new .hs-in::before{content:"✦ "}
+@media(max-width:640px){
+  .hero-set{grid-template-columns:minmax(0,1fr);gap:10px;margin-top:26px}
+  .hs-card{padding:15px 16px;gap:14px}
+  .hs-card img{width:54px}
+  .hs-nm{font-size:1.08rem}
+  .hs-ds{font-size:.9rem}
+  .hs-in{font-size:.84rem}
+}
+
+/* ─── Первый экран читается увереннее (18.08.2026) ──────────────────────
+   Подписи в первом экране были тонкими и мелкими: на телефоне это первое,
+   что видит человек, и оно должно читаться без усилия. Прибавляем вес и
+   размер, раскладку и цвета не трогаем. */
+.hero-sub{font-weight:500}
+.hero-meta-item{font-weight:600}
+@media(max-width:640px){
+  .hero-label{font-size:.74rem;font-weight:700;letter-spacing:.14em}
+  .hero-sub{font-size:1.06rem;line-height:1.5;font-weight:500}
+  .hero-sub2{font-size:1.14rem}
+  .hero-meta-item{font-size:.88rem;font-weight:600}
+  .hero-cta-wrap .btn-primary{font-size:.98rem;padding:18px 22px;letter-spacing:.05em}
+  .nav-cta{font-size:.8rem;padding:11px 15px}
+  .logo{font-size:.98rem}
+}
+
+/* ─── Мелкие подписи по всей странице (18.08.2026) ──────────────────────
+   Замер показал подписи по 9-12px: с руки такое читается тяжело.
+   Поднимаем до нормы, ничего не двигая. */
+@media(max-width:640px){
+  .learn-txt{font-size:.95rem;line-height:1.6}
+  .section-label{font-size:.8rem;letter-spacing:.14em}
+  .host-stat-lbl,.choice-pnote,.choice-desc{font-size:.84rem}
+  .choice-btn{font-size:.9rem;padding:15px}
+  small,.small,.note{font-size:.84rem}
+}
+
+/* ─── Слова целиком (18.08.2026) ────────────────────────────────────────
+   Переносы дефисом запрещены: они режут слова посреди строки. */
+*{hyphens:none;-webkit-hyphens:none}
+h1,h2,h3,.section-title,.hero-title{text-wrap:balance}
+p,li,.learn-txt{text-wrap:pretty}
 </style>
 </head>
 <body>
@@ -710,13 +771,24 @@
         <div class="hero-meta-item"><div class="hero-meta-dot"></div> Доступ навсегда</div>
     </div>
 
-    <!-- Book in hero -->
-    <div style="display:flex;align-items:center;gap:20px;margin-top:36px;padding:20px 28px;background:rgba(255,255,255,.65);backdrop-filter:blur(8px);border:1px solid var(--sage-border);max-width:520px;opacity:0;animation:fadeUp .8s ease .95s forwards">
-        <img loading="lazy" decoding="async" src="kniga.webp" alt="Тело говорит первым" style="width:64px;height:auto;flex-shrink:0;border-radius:3px;box-shadow:0 4px 12px rgba(0,0,0,.1)">
-        <div style="text-align:left">
-            <div style="font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:600;color:var(--text);line-height:1.3">+ Книга «Тело говорит первым»</div>
-            <div style="font-size:.78rem;color:var(--text-muted);line-height:1.5;margin-top:4px">30 сигналов · 7 систем · Красная зона · 50+ анализов<br>Входит в стоимость</div>
+    <!-- Что входит: книга и бонусный модуль -->
+    <div class="hero-set">
+      <div class="hs-card">
+        <img loading="lazy" decoding="async" src="kniga.webp" alt="Книга «Тело говорит первым»">
+        <div class="hs-tx">
+          <div class="hs-nm">Книга «Тело говорит первым»</div>
+          <div class="hs-ds">30 сигналов · 7 систем · 50+ анализов</div>
+          <div class="hs-in">Входит в стоимость</div>
         </div>
+      </div>
+      <div class="hs-card hs-new">
+        <img loading="lazy" decoding="async" src="vagus.webp" alt="Модуль «Блуждающий нерв»">
+        <div class="hs-tx">
+          <div class="hs-nm">Модуль «Блуждающий нерв»</div>
+          <div class="hs-ds">45 страниц · 10 практик · 2 протокола</div>
+          <div class="hs-in">Новый бонус, входит в стоимость</div>
+        </div>
+      </div>
     </div>
 
     <div class="hero-cta-wrap">
@@ -1141,7 +1213,7 @@
                     <div style="font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:var(--text)">Запись встречи</div>
                     <div style="font-size:.78rem;color:var(--text-muted);margin-top:4px">90 минут · Практика · Навсегда</div>
                 </div>
-                <div style="font-size:.9rem;color:var(--text-body);line-height:1.8;margin-bottom:20px"><strong style="color:var(--text)">Почему</strong> тело застряло в режиме борьбы. Как работает нервная система. Что запускает хронические состояния. И главное:<strong style="color:var(--text)">конкретная практика</strong>, которая переключает тело из выживания в восстановление.</div>
+                <div style="font-size:.9rem;color:var(--text-body);line-height:1.8;margin-bottom:20px"><strong style="color:var(--text)">Почему</strong> тело застряло в режиме борьбы. Как работает нервная система. Что запускает хронические состояния. И главное: <strong style="color:var(--text)">конкретная практика</strong>, которая переключает тело из выживания в восстановление.</div>
                 <div style="font-size:.82rem;color:var(--text-body);line-height:1.7">
                     <div style="padding:6px 0;border-bottom:1px solid var(--border)">✓ Разбор механики тела и нервной системы</div>
                     <div style="padding:6px 0;border-bottom:1px solid var(--border)">✓ Живая практика: повторяйте сколько угодно</div>
@@ -1224,7 +1296,7 @@
 
                 <p style="font-size:.92rem;color:var(--text-body);line-height:1.8;margin-bottom:20px">45 страниц. Анатомия блуждающего нерва простым языком. Три состояния нервной системы и как распознать своё. Карта сигналов тела: диагностика без тестов и приборов.</p>
 
-                <p style="font-size:.92rem;color:var(--text-body);line-height:1.8;margin-bottom:20px">Внутри<strong>10 практик</strong>, от 30 секунд до 20 минут. Одни работают мгновенно, в момент тревоги. Другие меняют базовый тонус нервной системы за две недели. Есть такие, которые можно делать в пробке. Есть те, после которых тело впервые за годы чувствует, что значит «безопасно».</p>
+                <p style="font-size:.92rem;color:var(--text-body);line-height:1.8;margin-bottom:20px">Внутри <strong>10 практик</strong>, от 30 секунд до 20 минут. Одни работают мгновенно, в момент тревоги. Другие меняют базовый тонус нервной системы за две недели. Есть такие, которые можно делать в пробке. Есть те, после которых тело впервые за годы чувствует, что значит «безопасно».</p>
 
                 <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-bottom:24px">
                     <div style="text-align:center;padding:16px 8px;background:var(--bg-card)">
